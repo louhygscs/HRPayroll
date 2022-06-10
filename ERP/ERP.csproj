@@ -355,6 +355,7 @@
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\DTRList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\EmployeeScheduleList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\EmployeeProfileList.js" />
+    <Content Include="Scripts\Modules\HRAndPayRoll\Masters\Role\RoleList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\StateList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\CountryList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\EducationList.js" />
