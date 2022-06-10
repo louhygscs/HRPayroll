@@ -1,0 +1,462 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="ERP.Modules.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>YHL | HRMS and Payroll Systems</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="shortcut icon" type="image/ico" href="~/Images/favicon.ico" />
+        <link rel="shortcut icon" href="~/Images/favicon.png" type="image/png" />
+
+        <link href="../Scripts/Modules/FormBuilder/formbuilder/styles.css" rel="stylesheet" />
+
+        <link href="<%=ResolveUrl("~/Styles/fontgoogle.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/bootstrap.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/all.min.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/font-awesome.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/ionicons.min.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/main.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/responsive.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/jquery.dataTables.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/toastr.css")%>" rel="stylesheet" />
+        <link href="<%=ResolveUrl("~/Styles/Common.css")%>" rel="stylesheet" />
+        
+        <script src="<%=ResolveUrl("~/Scripts/jquery-1.10.2.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/bootstrap.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/chart.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/util.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/app.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/icons.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/breakpoints.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/plugins/cookie/jquery.cookie.min.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/jquery.dataTables.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/toastr.js")%>"></script>
+        <script src="<%=ResolveUrl("~/Scripts/Common.js")%>"></script>
+        
+
+        <script src="<%=ResolveUrl("~/Scripts/plugins/bootbox/bootbox.all.min.js")%>"></script>
+
+        <!--[if lt IE 9]>
+        <script src="<%=ResolveUrl("~/Scripts/html5shiv.js")%>"></script>
+        <![endif]-->
+
+        <!-- time picker -->
+        <link href="<%=ResolveUrl("~/Scripts/plugins/timepicker/jquery.timepicker.css") %>" rel="stylesheet" />
+        <script src="<%=ResolveUrl("~/Scripts/plugins/timepicker/jquery.timepicker.js") %>"></script>
+        <!-- end time picker -->
+
+        <asp:ContentPlaceHolder ID="cphHead" runat="server">
+            <title>YHL Software</title>
+        </asp:ContentPlaceHolder>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                App.init(); 
+            });
+
+        </script>
+    </head>
+
+    <body>
+        <!-- Loading -->
+        <div id="loadingPanel" class="loadingPanel" style="display: none;">
+            &nbsp;
+        </div>
+        <!-- End Loading -->
+
+        <!-- Header -->
+        <header class="header navbar navbar-fixed-top" role="banner">
+
+            <!-- Top Navigation Bar -->
+            <div class="container">
+
+                <!-- Only visible on smartphones, menu toggle -->
+                <ul class="nav navbar-nav">
+                    <li class="nav-toggle">
+                        <a href="javascript:void(0);" title="">
+                            <i class="fa fa-bars align-middle"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <%-- <a class="navbar-brand" href="<%=ResolveUrl("~/Modules/Main.aspx") %>">Arity Infoway</a>
+
+                <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">
+                <i class="fa fa-reorder"></i>
+                </a> --%>
+
+                <ul class="nav navbar-nav navbar-left " id="brandContent">
+                    <li class="openSidbarIcon">
+                        <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">
+                            <i class="fa fa-bars align-middle"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Top Right Menu -->
+                <ul class="nav navbar-nav navbar-right">
+                    <%--	<li class="sortCutIcon">
+					    <a href="#">
+						    <img  src="<%=ResolveUrl("~/Images/Support Iocn.svg") %>" class="svg" alt="setting"/>
+					    </a>
+				    </li>
+				    <li class="sortCutIcon">
+					    <a href="#">
+						    <img  src="<%=ResolveUrl("~/Images/Chat Icon.svg") %>" class="svg" alt="chat"/>
+					    </a>
+				    </li>
+				    <li class="sortCutIcon notifiIcon">
+					    <a href="#">
+						    <img  src="<%=ResolveUrl("~/Images/notification icon.svg") %>" class="svg" alt="notifiIcon"/>
+						    <span class="msggreen"><span>
+					    </a>
+				    </li>
+                    --%>
+                    <li class="dropdown user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 6px 10px;">
+                            <span class="username" runat="server" id="lblUserName"></span>
+                            <i class="fa fa-caret-down small"></i>
+                            <img id="imgUserProfile" runat="server" alt="User Icon" class="userprofileicon" />
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li id="liProfile" runat="server"><a href="<%=ResolveUrl("~/Modules/Profile.aspx") %>"><i class="fa fa-user"></i>My Profile</a></li>
+                            <li>
+                                <a href="<%=ResolveUrl("~/Modules/ChangePassword.aspx") %>">
+                                    <i class="fa fa-lock"></i>
+                                    Change Password
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<%=ResolveUrl("~/Modules/Login.aspx") %>">
+                                    <i class="ion ion-ios-log-out" style="font-size: 16px;"></i>
+                                    LogOut
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- /top navigation bar -->
+        </header>
+        <!-- End Header -->
+
+        <div id="container">
+
+            <div id="sidebar" class="sidebar-fixed">
+                <div id="sidebar-content">
+                    
+                    <!--=== Navigation ===-->
+                    <div class="sidebarBrand">
+                        <div class="sideLogo">
+                            <a href="<%=ResolveUrl("~/Modules/Main.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/companylogo.png") %>" class="svg" alt="HRM logo" style="height:44px !important;" />
+                            </a>
+                        </div>
+                        <!--<a class="navbar-brand" href="<%=ResolveUrl("~/Modules/Main.aspx") %>">HRM</a> -->
+
+                        <a href="#" class="toggle-sidebar bs-tooltip" data-placement="bottom" data-original-title="Toggle navigation">
+                            <i class="fa fa-bars align-middle"></i>
+                        </a>
+                    </div>
+
+
+                    <ul id="nav">
+                        <li class="liSubMenu liDashboard current">
+                            <a href="<%=ResolveUrl("~/Modules/Main.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/dashborad.svg") %>" class="svg" alt="dashboard" />
+                                Dashboard
+                            </a>
+
+                        </li>
+                        <li class="liSubMenu liGeneralSettings" id="liGeneralSettings" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/CompanySave.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="company setting" />
+                                Company Settings
+                            </a>
+                        </li>
+                          <li class="liSubMenu liGlobalSettings" id="liGlobalSettings" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/GlobalSetting.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="global setting" />
+                                Global Settings
+                            </a>
+                        </li>
+                        <li class="liSubMenu liFinancialYear" id="liFinancialYear" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/FinancialYearList.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/year.svg") %>" class="svg" alt="Accounting Period" />
+                                Accounting Period
+                            </a>
+                        </li>
+                       <%-- <li class="liSubMenu liLicence" id="liLicence" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/LicenseGenerateList.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/key.svg") %>" class="svg" alt=" Licence Key" />
+                                Generate Licence Key 
+                            </a>
+                        </li>--%>
+                        <li class="liSubMenu liUserDetail" id="liUserDetail" runat="server"><a href="<%=ResolveUrl("~/Modules/General/UserDetails.aspx") %>"><i class="fa fa-user"></i>User Detail</a></li>
+                        <li class="liSubMenu liAttendance" id="liAttendance" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/Attendance.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/attendace.svg") %>" class="svg" alt=" Attendance" />
+
+                                Attendance
+                            </a>
+                        </li>
+                        <li class="liSubMenu liLeaveDetails" id="liLeaveDetails" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/LeaveDetails.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/leave.svg") %>" class="svg" alt=" Leave Detail" />
+
+                                Leave Details
+                            </a>
+                        </li>
+                        <li class="liSubMenu liSalarySlip" id="liSalarySlip" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/SalarySlip.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/salaryslip.svg") %>" class="svg" alt=" Salary Slip" />
+
+                                Salary Slip
+                            </a>
+                        </li>
+                        <li class="liSubMenu liLeaveApplication" id="liLeaveApplication" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/LeaveApplicationList.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/leave.svg") %>" class="svg" alt=" Leave Application" />
+                                Leave Application
+                            </a>
+                        </li>
+                        <li class="liSubMenu liDeviceAttendance" id="liDeviceAttendance" runat="server">
+                            <a href="<%=ResolveUrl("~/Modules/General/DeviceAttendance.aspx") %>">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/device.svg") %>" class="svg" alt=" Device Attendance" />
+
+                                Device Attendance
+                            </a>
+                        </li>
+                        <%--<li class="liSubMenu liManageUserPermission" id="liManageUserPermission" runat="server"><a href="#"><i class="fa fa-lock"></i>Manage User Permission</a></li>--%>
+                        <li class="liSubMenu liHR" id="liHR" runat="server">
+                            <a href="javascript:void(0);">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/barcode.svg") %>" class="svg" alt=" Hr & Payroll" />
+                                HR & PayRoll
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="liSubMenu liHRMasters">
+                                    <a href="javascript:void(0);">
+                                        <img src="<%=ResolveUrl("~/Images/sidebar/masters.svg") %>" class="svg" alt="master" />
+                                        Data Masters
+                                    </a>
+                                    <ul class="sub-menu">
+
+                                        <li class="lliSubMenu liEmployeeInfo"><a href="javascript:void(0);"><i class="fa fa-wrench"></i>Employee Info</a>
+                                            <ul class="sub-menu">
+                                                <%--<li class="liSubMenu liEmployee"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeList.aspx") %>"><i class="fas fa-circle"></i>201 File Record</a></li>--%>
+                                                <li class="liSubMenu liEmployee"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeProfileList.aspx") %>"><i class="fas fa-circle"></i>201 File Record</a></li>
+                                                <li class="liSubMenu liEmployeeSalary"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeSalaryList.aspx") %>"><i class="fas fa-circle"></i>Compensation</a></li>
+                                                <li class="liSubMenu liEmployeeType"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeTypeList.aspx") %>"><i class="fas fa-circle"></i>Employee Type</a></li>
+                                                <li class="liSubMenu liEmployeeGrade"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeGradeList.aspx") %>"><i class="fas fa-circle"></i>Classification</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="lliSubMenu liEmployeeInfo"><a href="javascript:void(0);"><i class="fa fa-wrench"></i>Payroll</a>
+                                            <ul class="sub-menu">
+                                                
+                                                <li class="liSubMenu CutOffPeriod"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/CutOff/CutOffList.aspx") %>"><i class="fas fa-circle"></i>CutOff Master</a></li>
+                                                <li class="liSubMenu EmployeeSchedule"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeSchedule/EmployeeScheduleList.aspx") %>"><i class="fas fa-circle"></i>Employee Schedule</a></li>
+                                                <li class="liSubMenu DailyTimeRecord"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/DailyTimeRecord/DTRList.aspx") %>"><i class="fas fa-circle"></i>Daily Time Record</a></li>
+                                                <li class="liSubMenu PayrollSummary"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/PayrollSummary/PSList.aspx") %>"><i class="fas fa-circle"></i>Payroll Summary</a></li>
+                                                <%--<li class="liSubMenu liEmployeeSalary"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeSalaryList.aspx") %>"><i class="fas fa-circle"></i>Time Record Summary</a></li>
+                                                <li class="liSubMenu liEmployeeType"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeTypeList.aspx") %>"><i class="fas fa-circle"></i>Employee Type</a></li>
+                                                <li class="liSubMenu liEmployeeGrade"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EmployeeGradeList.aspx") %>"><i class="fas fa-circle"></i>Classification</a></li>--%>
+                                            </ul>
+                                        </li>
+
+                                        <li class="lliSubMenu liReference"><a href="javascript:void(0);"><i class="fa fa-wrench"></i>References</a>
+                                            <ul class="sub-menu">
+                                                <li class="liSubMenu liCompany"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/Company/CompanyList.aspx") %>"><i class="fas fa-circle"></i>Company</a></li>
+                                                <li class="liSubMenu liCurrency"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/CurrencyList.aspx") %>"><i class="fas fa-circle"></i>Currency</a></li>
+
+                                                <li class="liSubMenu liCategory"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/Dimension/CategoryList.aspx") %>"><i class="fas fa-circle"></i>Category</a></li>
+                                                <li class="liSubMenu liLeaveCategory"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/LeaveCategoryList.aspx") %>"><i class="fas fa-circle"></i>Leave Category</a></li>
+
+                                                <li class="liSubMenu liCountry"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/CountryList.aspx") %>"><i class="fas fa-circle"></i>Country</a></li>
+                                                <li class="liSubMenu liState"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/StateList.aspx") %>"><i class="fas fa-circle"></i>Region</a></li>
+
+                                                <li class="liSubMenu liDepartment"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/DepartmentList.aspx") %>"><i class="fas fa-circle"></i>Department</a></li>
+                                                <li class="liSubMenu liDesignation"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/DesignationList.aspx") %>"><i class="fas fa-circle"></i>Designation</a></li>
+
+                                                <li class="liSubMenu liShift"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/ShiftList.aspx") %>"><i class="fas fa-circle"></i>Shift</a></li>
+                                                <li class="liSubMenu liAllowance"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/AllowanceList.aspx") %>"><i class="fas fa-circle"></i>Allowance</a></li>
+                                                <li class="liSubMenu liDeduction"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/DeductionList.aspx") %>"><i class="fas fa-circle"></i>Deduction</a></li>
+                                        
+                                                <li class="liSubMenu liHoliday"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/HolidayList.aspx") %>"><i class="fas fa-circle"></i>Holiday</a></li>
+                                                <li class="liSubMenu liEducation"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/EducationList.aspx") %>"><i class="fas fa-circle"></i>Education</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- History Transaction -->
+                                <li class="liSubMenu liHRTransactions">
+                                    <a href="javascript:void(0);">
+                                        <i class="fa fa-wrench"></i>
+                                        History Transactions
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="liSubMenu liEmployeeLeave"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeLeaveList.aspx") %>"><i class="fas fa-circle"></i>Leave Management</a></li>
+                                        <li class="liSubMenu liEmployeeLoan"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeLoanList.aspx") %>"><i class="fas fa-circle"></i>Loan Management</a></li>
+                                        <li class="liSubMenu liEmployeeSalaryProcess"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeSalaryProcessList.aspx") %>"><i class="fas fa-circle"></i>Monthly Salary Management</a></li>
+                                        <li class="liSubMenu liEmployeeHourlySalaryProcess"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeHourlySalaryProcessList.aspx") %>"><i class="fas fa-circle"></i>Hourly Salary Management</a></li>
+                                          <li class="liSubMenu liEmployeeWeeklySalaryProcess"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeWeeklySalaryProcessList.aspx") %>"><i class="fas fa-circle"></i>Weekly Salary Management</a></li>
+                                          <li class="liSubMenu liEmployeeDailySalaryProcess"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeDailySalaryProcessList.aspx") %>"><i class="fas fa-circle"></i>Daily Salary Management</a></li>
+                                        <li class="liSubMenu liEmployeeShift"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeShiftList.aspx") %>"><i class="fas fa-circle"></i>Shift Management</a></li>
+                                        <li class="liSubMenu liEmployeeAttendance"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeAttendanceEntry.aspx") %>"><i class="fas fa-circle"></i>Attendance Entry</a></li>
+                                        <li class="liSubMenu liEmployeeLeaveOpeningDetails"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/EmployeeLeaveOpeningDetails.aspx") %>"><i class="fas fa-circle"></i>Leave Opening Details</a></li>
+                                        <li class="liSubMenu liApproveEmployeeOverTime"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Transactions/ApproveEmployeeOverTime.aspx") %>"><i class="fas fa-circle"></i>Approve Employee OverTime</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End History Transaction -->
+
+                                <!-- Reports -->
+                                <li class="liSubMenu liHRReports">
+                                    <a href="javascript:void(0);">
+                                        <i class="fas fa-file-signature"></i>
+                                        Reports
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="liSubMenu liEmployeeDetail"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/EmployeeDetail.aspx") %>"><i class="fas fa-circle"></i>Employee Detail</a></li>
+                                        <li class="liSubMenu liSalary"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/Salary.aspx") %>"><i class="fas fa-circle"></i>Salary</a></li>
+                                        <li class="liSubMenu liLoan"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/Loan.aspx") %>"><i class="fas fa-circle"></i>Loan</a></li>
+                                        <li class="liSubMenu liAttendance"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/Attendance.aspx") %>"><i class="fas fa-circle"></i>Attendance</a></li>
+                                        <li class="liSubMenu liAttendanceDevice"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/DeviceAttendance.aspx") %>"><i class="fas fa-circle"></i>Device Attendance</a></li>
+                                           <li class="liSubMenu liMonthlyAttendanceDevice"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/MonthlyDeviceAttendance.aspx") %>"><i class="fas fa-circle"></i>Monthly Device Attendance</a></li>
+                                        <li class="liSubMenu liOverTime"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/OverTime.aspx") %>"><i class="fas fa-circle"></i>Over Time</a></li>
+                                        <li class="liSubMenu liLeave"><a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Reports/Leave.aspx") %>"><i class="fas fa-circle"></i>Leave</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End Reports -->
+
+                            </ul>
+                        </li>
+
+                        <!-- Form Admin -->
+                        <%--<li class="liSubMenu liFormAdmin" id="li1" runat="server">
+                            <a href="javascript:void(0);">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Form" />
+                                Form
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="liSubMenu liFormList" id="li2" runat="server">
+                                    <a href="<%=ResolveUrl("~/Modules/FormBuilder/FormList.aspx") %>">
+                                        <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Form List" />
+                                        Form List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>--%>
+                        <!-- End Form Admin -->
+
+                        <!-- Recuirement -->
+                        <li class="liSubMenu liRecruitment" id="liRecruitment" runat="server">
+                            <a href="javascript:void(0);">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Recruitment" />
+                                Recruitment
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="liSubMenu liInterview" id="liInterview" runat="server">
+                                    <a href="<%=ResolveUrl("~/Modules/General/InterviewList.aspx") %>">
+                                        <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Interview" />
+                                        Interview
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- End Recuirement -->
+
+                        <li class="liSubMenu liBioMetricDevice" id="liBioMetricDevice" runat="server">
+                            <a href="javascript:void(0);">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/device.svg") %>" class="svg" alt="device" />
+
+                                BioMetric Device
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="liSubMenu liDevice"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Device/DeviceList.aspx") %>"><i class="fa fa-mobile"></i>Device</a></li>
+                                <li class="liSubMenu liDeviceEmployee"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Employee/EmployeeList.aspx") %>"><i class="fa fa-user"></i>Device Employee</a></li>
+                                <li class="liSubMenu liMaintenance"><a href="javascript:void(0);"><i class="fa fa-wrench"></i>Maintenance</a>
+                                    <ul class="sub-menu">
+                                        <li class="liSubMenu liSendEmployeeToDevice"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Maintenance/SendEmployee.aspx") %>"><i class="fas fa-circle"></i>
+                                            Send Employee to Device(s)</a>
+                                        </li>
+                                        <li class="liSubMenu liSyncFingerPrint"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Maintenance/SyncFingerPrint.aspx") %>"><i class="fas fa-circle"></i>
+                                            Synchronize Fingerprint</a>
+                                        </li>
+                                        <li class="liSubMenu liCollectFingerPrint"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Maintenance/CollectFingerPrint.aspx") %>"><i class="fas fa-circle"></i>
+                                            Collect Fingerprint</a>
+                                        </li>
+                                        <li class="liSubMenu liCollectAttendance"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Maintenance/CollectAttendance.aspx") %>"><i class="fas fa-circle"></i>
+                                            Collect Attendance from Device(s)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="liSubMenu liReport"><a href="javascript:void(0);"><i class="fas fa-file-signature"></i>Report</a>
+                                    <ul class="sub-menu">
+                                        <li class="liSubMenu liEmployeeAttendance"><a href="<%=ResolveUrl("~/Modules/BioMetricDevice/Reports/EmployeeAttendance.aspx") %>"><i class="fas fa-circle"></i>
+                                            Employee Attendance</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        
+
+                    </ul>
+                    
+                    <!-- Theme Button -->
+                    <div class="sidebar-widget align-center">
+                        <div class="btn-group" data-toggle="buttons" id="theme-switcher">
+                            <div class="switcherShadow">
+                                <label class="btn active">
+                                    <input type="radio" name="theme-switcher" data-theme="bright" />
+                                    <img src="<%=ResolveUrl("~/Images/sidebar/light.svg") %>" class="svg" alt="light" />
+                                    Light
+                                </label>
+                                <label class="btn">
+                                    <input type="radio" name="theme-switcher" data-theme="dark" />
+                                    <img src="<%=ResolveUrl("~/Images/sidebar/darkicon.svg") %>" class="svg" alt="dark" />
+                                    Dark
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Theme Button -->
+
+                </div>
+                <div id="divider" class="resizeable">
+                </div>
+            </div>
+            <!-- /Sidebar -->
+            
+            <!-- Content -->
+            <div id="content">
+                <div class="container">
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <!-- /Page Content -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- End Content -->
+
+            <!-- Footer -->
+            <footer>
+                <div class="footContent">
+                    <span runat="server" id="lblYear"></span> &copy; <a href="https://yhlsoftware.com">YHL Software</a> <span>|</span> All Rights & Reserved
+                </div>
+            </footer>
+            <!-- End Footer -->
+
+        </div>
+    </body>
+</html>

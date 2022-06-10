@@ -1,0 +1,724 @@
+/* ========================================================
+*
+* Melon - Flat & Responsive Admin Template
+*
+* ========================================================
+*
+* File: responsive.css
+* Description: Template styles for responsive design (for phone and tablet devices)
+* Version: 1.0
+*
+* ======================================================== */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/* # Responsive Classes
+================================================== */
+@-ms-viewport {
+  width: device-width;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+.visible-phone {
+  display: none !important;
+}
+.visible-tablet {
+  display: none !important;
+}
+.hidden-desktop {
+  display: none !important;
+}
+.visible-desktop {
+  display: inherit !important;
+}
+
+@media (min-width:1000px) and (max-width:1160px){
+	.timelines ul li .timelineContent {
+		float:left;
+		width:65%;
+	}
+	.timelines ul li .timelineContent .titleTimeline{
+		font-size:14px;
+	}
+	.timelines{
+		padding:0;
+		float:left;
+		width:100%;
+		margin-top:-30px;
+	}
+	.endsCharts .widget{
+		min-height:400px;
+		float:left;
+		width:100%;
+	}
+	.endsCharts .widget.box .widget-content{
+		width:100%;
+		float:left;
+		height:100%;
+	}
+	.widget-content .pieChart{
+		margin-top:-30px;
+	}
+
+	.statbox .title{
+		font-size:12px;
+	}
+	.statbox .title + .value span{
+		font-size:20px;
+	}
+	.statbox .visual svg{
+		height:30px;
+		width:30px;
+	}
+	.dataTables_wrapper{
+		top: -45px;
+		overflow: hidden;
+		overflow-X:auto;
+		padding-top: 30px;
+	}
+	
+}
+@media (min-width: 980px) and (max-width:1035px){
+	.widget.box .widget-content{
+	  overflow:hidden;
+	}
+	.dataTables_wrapper{
+		overflow-Y:auto;
+		padding-bottom:10px;
+	}
+	.statbox .title{
+		font-size:13px;
+	}
+	.statbox .title + .value span{
+		font-size:18px;
+	}
+	.statbox .visual svg{
+		height: 30px;
+		width: 30px;
+	}
+	.widget .widget-header h4{
+		font-size:18px;
+	}
+	.widget-content .pieChart{
+		margin-top:-30px;
+	}
+	.timelines ul li .timelineContent{
+		padding-left:60px;
+	}
+	
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important ;
+  }
+  .visible-tablet {
+    display: inherit !important;
+  }
+  .hidden-tablet {
+    display: none !important;
+  }
+  #theme-switcher .btn{
+	  padding:10px 12px;
+  }
+}
+
+@media (min-width:1600px){
+	.widget .widget-header h4{
+		font-size:28px;
+	}
+	.timelines ul li .timelineContent .titleTimeline{
+		font-size:18px;
+	} 
+	.employeTable table.dataTable tbody td:last-child{
+		padding-right:4%;
+	}
+	#sidebar #sidebar-content{
+		height:100%;
+		background-color:#fff;
+	}
+}
+@media (max-width: 2000px){
+	.employeTable.employeLeaveTable table.dataTable{
+		min-width:1300px;
+	}
+	.employeTable.employeLeaveTable  .dataTables_wrapper{
+		overflow:hidden;
+		overflow-X:auto;
+		white-space:nowrap;
+		padding-bottom:10px;
+		top: -50px;
+		padding-top: 30px;		
+	}
+}
+@media (max-width: 1595px) {
+	.employeTable table.dataTable{
+		min-width:1300px;
+	}
+	.employeTable  .dataTables_wrapper{
+		overflow:hidden;
+		overflow-X:auto;
+		white-space:nowrap;
+		padding-bottom:10px;
+		top: -50px;
+		padding-top: 30px;		
+	}
+	.employeTable  .dataTables_wrapper::-webkit-scrollbar-track{
+		/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+		/* background-color: rgba(0,0,0, 0.3); */
+	}
+	.employeTable ::-webkit-scrollbar{
+		height: 5px;
+		background-color: #F5F5F5;
+	}
+	.employeTable ::-webkit-scrollbar-thumb{
+		background-color: #c1c1c1;
+	}
+}
+@media (max-width: 767px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important;
+  }
+  .visible-phone {
+    display: inherit !important;
+  }
+  .hidden-phone {
+    display: none !important;
+  }
+}
+.visible-print {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: inherit !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+}
+/* # Media Queries
+================================================== */
+/* # Responsive Navbar/Navigation/Sidebar
+================================================== */
+/* # From 979px and below
+-------------------------------------------------- */
+@media (max-width: 979px) {
+  body {
+    padding-top: 0;
+  }
+  .navbar {
+    position: relative;
+    margin-bottom: 0;
+  }
+  .navbar .navbar-inner {
+    padding: 0px;
+  }
+  .navbar .container {
+    width: auto;
+  }
+  .navbar .navbar-brand {
+    width: 159px;
+    font-size: 17px;
+  }
+  .navbar .toggle-sidebar {
+    display: none;
+  }
+  .navbar-fixed-top {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  #container.fixed-header {
+    margin-top: 0;
+  }
+  .sidebar-fixed,
+  #sidebar {
+    position: fixed !important;
+    top: 0;
+  }
+  #divider {
+    left: -8px;
+  }
+  .navbar-left.navbar-left-responsive {
+    position: absolute;
+    width: 100%;
+    background: #2a4053;
+    margin-top: 48px !important;
+    margin-left: -20px;
+    display: none;
+  }
+  .navbar-left.navbar-left-responsive > li {
+    border-right: none;
+  }
+}
+@media (max-width: 767px) {
+  .navbar .navbar-brand {
+    padding: 10px 20px 10px;
+    margin-left: -10px;
+  }
+  .navbar-left.navbar-left-responsive {
+    margin-left: 0;
+  }
+}
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+/* # Large desktops
+-------------------------------------------------- */
+@media (max-width: 1300px) {
+  .wizardList > ul li{
+	  width:210px;
+  }
+}
+/* # Tablets to regular desktops
+-------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+  #sidebar {
+    width: 180px;
+    overflow: visible;
+    float: left;
+    border-right: 1px solid #d1d1d1;
+	top:-66px;
+  }
+  .navbar-brand{
+	  padding:15px 5px;	
+  }
+  .sidebarBrand .toggle-sidebar{
+	  right:10px;
+  }
+  .sideLogo{
+	  /* height:25px; */
+	  /* width:25px; */
+	  /* top:15px; */
+  }
+  #sidebar ul#nav > li.current > a {
+    border-right: 2px solid #668eb0;
+  }
+  #sidebar ul#nav > li.current > a > .arrow {
+    right: 2px !important;
+  }
+  #sidebar ul#nav li a {
+    font-size: 12px;
+  }
+  #sidebar ul#nav li ul.sub-menu {
+    margin-left: 0px;
+  }
+  #sidebar ul#nav li ul.sub-menu li a {
+    font-size: 11px;
+  }
+  #sidebar ul#nav li ul.sub-menu li ul.sub-menu {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  #divider {
+    display: none;
+  }
+  .slimScrollBar,
+  .slimScrollRail {
+    display: none !important;
+  }
+  #content {
+    margin-left: 181px;
+	padding-top: 20px;
+  }
+  /*[class*="span"], .uneditable-input[class*="span"], .row-fluid [class*="span"] {
+  		display: block;
+  		float: none;
+  		width: 100%;
+  		margin-left: 0;
+  		-webkit-box-sizing: border-box;
+  		-moz-box-sizing: border-box;
+  		box-sizing: border-box;
+  	}*/
+  .crumbs .crumb-buttons > li > a > span {
+    display: none;
+  }
+  .page-stats li:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .page-stats li .summary {
+    margin-right: 5px;
+  }
+  .input-xxlarge {
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .wizardList > ul li{
+	  width:auto;
+	  margin-right:10px;
+  }
+  .widget.box .widget-content{
+	  overflow:hidden;
+	  overflow-x: auto;
+  }
+}
+/* # Phones to portrait tablets and narrow desktops
+-------------------------------------------------- */
+@media (max-width: 767px) {
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  .container {
+    padding: 0;
+  }
+  #content {
+    margin-left: 0;
+	padding-top:20px;
+  }
+  .row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .navbar .container {
+    /* padding: 0; */
+	padding: 8px 10px;
+    /* * * * * * * * * * * *
+  			 * Dropdown
+  			 * * * * * * * * * * * */
+  
+  }
+/* .openSidbarIcon .toggle-sidebar{ */
+	/* display:none; */
+	/* visibility:hidden; */
+/* } */
+  .navbar .container .nav > li.nav-toggle {
+    display: block;
+  }
+  .navbar .container .navbar-brand {
+    display: none;
+  }
+  .navbar .container .username {
+    display: none;
+  }
+  .navbar .container .nav-left {
+    margin-left: -2px;
+  }
+  .navbar .container .navbar-nav {
+    float: left;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .navbar .container .navbar-nav.pull-right {
+    float: right;
+    width: auto;
+  }
+  .navbar .container .navbar-nav > li {
+    float: left;
+  }
+  .navbar .container .nav > li > .dropdown-menu.extended {
+    margin-right: -150px;
+    width: 260px;
+  }
+  .navbar .container .nav > li > .dropdown-menu.extended > li > a {
+    color: #6f6f6f;
+    padding: 8px;
+  }
+  .navbar .container .nav > li > .dropdown-menu.extended > li > a:hover {
+    background-color: #4d7496;
+    color: #fff;
+  }
+  .navbar .container .nav > li > .dropdown-menu.extended > li.footer > a {
+    background-color: #f9f9f9;
+  }
+  #divider {
+    display: none;
+  }
+  /* * * * * * * * * * * *
+  	 * Project Switcher
+  	 * * * * * * * * * * * */
+  #project-switcher .project-list li {
+    padding: 0 10px;
+  }
+  #container {
+    position: relative;
+    left: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #sidebar {
+    position: fixed !important;
+    overflow: hidden;
+    overflow-y: auto;
+    top: 0;
+    left: -250px;
+    width: 249px;
+    height: 100%;
+    z-index: 1;
+    border-right: 1px solid #d1d1d1;
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+  }
+  #sidebar ul#nav > li.current > a {
+    border-right: 2px solid #668eb0;
+  }
+  #sidebar ul#nav li a {
+    padding: 12px 15px;
+  }
+  #sidebar ul#nav li ul.sub-menu li a {
+    padding: 10px 15px 10px 20px;
+  }
+  #container,
+  .header,
+  #sidebar {
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+  }
+  .nav-open #container,
+  .nav-open .header,
+  .nav-open #sidebar {
+    /* left: 250px; */
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+  }
+  .nav-open #sidebar {
+    left: 0;
+	top:-66px;
+	margin-left: 0 !important;
+	z-index:1040;
+  }
+  .crumbs .crumb-buttons > li > a > span {
+    display: none;
+  }
+  .daterangepicker.dropdown-menu {
+    min-width: 0px !important;
+  }
+  .daterangepicker.opensleft .calendar.right {
+    float: none;
+  }
+  .left-box,
+  .right-box {
+    width: 100%;
+    float: none;
+  }
+  .dual-control {
+    width: auto;
+    margin: 20px 0;
+    position: static;
+    left: 0;
+  }
+  .btn-group,
+  .input-append,
+  .input-prepend {
+    white-space: normal;
+  }
+  .form-horizontal .form-actions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .input-width-large,
+  .input-width-xlarge,
+  .input-width-xxlarge {
+    width: 100% !important;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .select2-container-multi.full-width-fix .select2-search-field input {
+    width: 100% !important;
+  }
+  .wizardList > ul li{
+	  width:auto;
+	  margin-right:10px;
+	  
+  }
+  .widget.box .widget-content{
+	  overflow:hidden;
+	  overflow-x: auto;
+  }
+  .userProfile{
+	  text-align:left;
+  }
+}
+@media (min-width: 481px ) and (max-width:559px){
+	#brandContent{
+		padding-left:0 !important;
+	}
+}
+@media (max-width: 480px) {
+  .page-header {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .page-header .page-title {
+    float: none;
+  }
+  .page-header .page-stats {
+    display: none;
+  }
+  .crumbs {
+    text-align: center;
+  }
+  .crumbs .breadcrumb {
+    display: none;
+  }
+  .crumbs .crumb-buttons {
+    float: none;
+    margin: 0 auto;
+    display: inline-block;
+    height: 40px;
+  }
+  /* * * * * * * * * * * *
+  	 * Login
+  	 * * * * * * * * * * * */
+  .login .logo {
+    margin-top: 0 !important;
+  }
+  .login .box {
+    width: 100% !important;
+  }
+  .login .single-sign-on {
+    width: 90% !important;
+  }
+  .widget.box .widget-content{
+	  overflow:hidden;
+	  overflow-x: auto;
+  }
+  #content{
+	  padding-top:20px;
+  }
+  .wizardList > ul li{
+	  float:left;
+	  width:100%;
+	  text-align: left;
+  }
+ .userProfile .userPhoto{
+		float:none;
+		margin:auto;
+  }
+   .userProfile{
+	  text-align:center;
+  }
+  .userProfile .userInfo{
+	  float:none;
+	  margin:auto;
+  }
+  #brandContent{
+	  padding-left:0 !important;
+  }
+  .widget-content .pieChart{
+	  margin-top:-10px;
+  }
+  footer{
+	  padding-left:0;
+	  position: absolute;
+	  left: 0;
+	  width: 100%;
+  }
+  footer .footContent{
+	  padding:20px 10px;
+  }
+  .page-header h3{
+	  font-size:20px;
+  }
+  .addButtons a{
+	  font-size:12px;
+  }
+  .addButtons .plushicon{
+	  height:20px;
+	  width:20px;
+	  margin-right:5px;
+	  padding:0;
+  }
+  .addButtons{
+	  padding:12px 8px;
+  }
+  .getKeyBtn,
+  .activeKey{
+	  margin-top:10px;
+  }
+  .formActionbtn .btn{
+	  width:45%;
+  }
+  .headingOftabel h4{
+	  font-size:20px;
+  }
+  .dataTables_wrapper{
+	  top:0px;
+	  padding-top:20px;
+  }
+  .dataTables_wrapper .dataTables_filter{
+	  padding-bottom:0;
+  }
+  .employeTable .dataTables_wrapper{
+	  top:0;
+	  padding-top:20px;
+  }
+	.pageHeading{
+		display:block;
+	}
+	#sidebar #sidebar-content .sidebar-widget{
+		position:relative;
+	}
+	table.dataTable{
+		min-width:500px;
+	}
+	.employeTable.employeLeaveTable .dataTables_wrapper{
+		top:0;
+	}
+	#theme-switcher .btn{
+		padding:10px 15px;
+	}
+	.navbar .nav > li.sortCutIcon > a{
+		padding:10px 10px;
+	}
+	.notifiIcon .msggreen{
+		right:10px;
+	}
+	.checkboxlist  td{
+		width:100%;
+		float:left;
+	}
+	.employessForms .widget.box .widget-content{
+		overflow:hidden;
+	}
+	.widget .widget-header h4{
+		font-size:18px;
+	}
+	.dataTables_wrapper{
+		overflow-x:auto;
+	}
+	.table-bordered > thead > tr > th{
+		min-width:140px !important;
+	}
+	.widget.box .widget-content .widget.box .widget-content{
+		padding:5px;
+	}
+}

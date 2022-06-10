@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7776557-EDD8-4F88-A019-FD063B42683E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP.Dal</RootNamespace>
+    <AssemblyName>ERP.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllowanceMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CountryMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeductionMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DesignationMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTRRaw.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EducationMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAllowanceMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAttachment.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAttendance.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAttendanceDevice.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDeductionMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDeviceMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeGradeMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveCategory.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLoan.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePaidAllowanceMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePaidDeductionMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePaidLoan.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePaidSalary.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeSalary.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeSchedule.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTypeMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeWorkingDay.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERP_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERP_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERP_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ERP_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERP_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FieldMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialYearMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSetting.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="History.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implemention\CompanyService.cs" />
+    <Compile Include="Implemention\Form\FormService.cs" />
+    <Compile Include="Implemention\General\DimensionService.cs" />
+    <Compile Include="Implemention\General\DocumentService.cs" />
+    <Compile Include="Implemention\HRAdmin\PayrollService.cs" />
+    <Compile Include="Implemention\CurrencyService.cs" />
+    <Compile Include="Implemention\StateService.cs" />
+    <Compile Include="Implemention\DeviceService.cs" />
+    <Compile Include="Implemention\CountryService.cs" />
+    <Compile Include="Implemention\EducationService.cs" />
+    <Compile Include="Implemention\EmployeeAttendanceDeviceService.cs" />
+    <Compile Include="Implemention\EmployeeAttendanceService.cs" />
+    <Compile Include="Implemention\EmployeeDeviceMapService.cs" />
+    <Compile Include="Implemention\EmployeeLoanService.cs" />
+    <Compile Include="Implemention\EmployeeSalaryService.cs" />
+    <Compile Include="Implemention\EmployeeService.cs" />
+    <Compile Include="Implemention\FinancialYearService.cs" />
+    <Compile Include="Implemention\EmployeeLeaveCategoryService.cs" />
+    <Compile Include="Implemention\EmployeePaidSalaryService.cs" />
+    <Compile Include="Implemention\InterviewService.cs" />
+    <Compile Include="Interface\Form\IFormService.cs" />
+    <Compile Include="Interface\General\IDimensionService.cs" />
+    <Compile Include="Interface\General\IDocumentService.cs" />
+    <Compile Include="Interface\HRAdmin\IPayrollService.cs" />
+    <Compile Include="Interface\ICurrencyService.cs" />
+    <Compile Include="Interface\IStateService.cs" />
+    <Compile Include="Interface\ICountryService.cs" />
+    <Compile Include="Interface\IEducationService.cs" />
+    <Compile Include="Implemention\LicenseGenerateService.cs" />
+    <Compile Include="Interface\IDeviceService.cs" />
+    <Compile Include="Interface\ICompanyService.cs" />
+    <Compile Include="Implemention\ShiftService.cs" />
+    <Compile Include="Implemention\AllowanceService.cs" />
+    <Compile Include="Implemention\DeductionService.cs" />
+    <Compile Include="Implemention\HolidayService.cs" />
+    <Compile Include="Implemention\LeaveCategoryService.cs" />
+    <Compile Include="Implemention\EmployeeTypeService.cs" />
+    <Compile Include="Implemention\DesignationService.cs" />
+    <Compile Include="Implemention\EmployeeGradeService.cs" />
+    <Compile Include="Implemention\HistoryService.cs" />
+    <Compile Include="Implemention\DepartmentService.cs" />
+    <Compile Include="Implemention\UserService.cs" />
+    <Compile Include="Implemention\LookupService.cs" />
+    <Compile Include="Interface\IEmployeeAttendanceDevice.cs" />
+    <Compile Include="Interface\IEmployeeAttendanceService.cs" />
+    <Compile Include="Interface\IEmployeeDeviceMapService.cs" />
+    <Compile Include="Interface\IEmployeeLoanService.cs" />
+    <Compile Include="Interface\IEmployeeSalaryService.cs" />
+    <Compile Include="Interface\IEmployeeService.cs" />
+    <Compile Include="Interface\IFinancialYearService.cs" />
+    <Compile Include="Interface\IEmployeeLeaveCategoryService.cs" />
+    <Compile Include="Interface\IEmployeePaidSalaryService.cs" />
+    <Compile Include="Interface\ILicenseGenerateService.cs" />
+    <Compile Include="Interface\IInterviewService.cs" />
+    <Compile Include="Interface\IShiftService.cs" />
+    <Compile Include="Interface\IDeductionService.cs" />
+    <Compile Include="Interface\IAllowanceService.cs" />
+    <Compile Include="Interface\IHolidayService.cs" />
+    <Compile Include="Interface\ILeaveCategoryService.cs" />
+    <Compile Include="Interface\IEmployeeTypeService.cs" />
+    <Compile Include="Interface\IDesignationService.cs" />
+    <Compile Include="Interface\IEmployeeGradeService.cs" />
+    <Compile Include="Interface\IHistoryService.cs" />
+    <Compile Include="Interface\IDepartmentService.cs" />
+    <Compile Include="Interface\IUserService.cs" />
+    <Compile Include="Interface\ILookupService.cs" />
+    <Compile Include="InterviewAttachment.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InterviewMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDetail.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IpInformation.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveCategoryMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseKeyMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollCutOffMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollDTR.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayrollSummary.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StateMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserModuleMap.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValueMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Common\ERP.Common.csproj">
+      <Project>{80d574d8-5877-4a58-825d-fe394bba45d5}</Project>
+      <Name>ERP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERP.Model\ERP.Model.csproj">
+      <Project>{1586e785-74eb-4981-8eea-3557cd2ffc56}</Project>
+      <Name>ERP.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ERP_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERP_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ERP_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERP_Model.edmx</DependentUpon>
+      <LastGenOutput>ERP_Model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="ERP_Model.edmx.diagram">
+      <DependentUpon>ERP_Model.edmx</DependentUpon>
+    </None>
+    <None Include="ERP_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERP_Model.edmx</DependentUpon>
+      <LastGenOutput>ERP_Model.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ERP_Model.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

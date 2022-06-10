@@ -1,0 +1,63 @@
+/* ========================================================
+*
+* Melon - Flat & Responsive Admin Template
+*
+* ========================================================
+*
+* File: login.css
+* Description: Login template styling
+* Version: 1.0
+*
+* ======================================================== */
+.login {
+    background-color: #f5f5f5;
+}
+    .login .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        width: 420px;
+    }
+        .login .box .logo img {
+            width: 180px;
+            margin: 0 auto;
+            display: block;
+        }
+        .login .box .logo .form-title {
+            color: #000000;
+            font-weight: 500;
+            text-align: center;
+        }
+        .login .box .content {
+            border-radius: .25em;
+            background-color: #ffffff;
+            padding: 30px;
+            border-top: 5px solid #c42033;
+            margin-top: 30px;
+        }
+            .login .box .content .form_group .forgot-password-link {
+                color: #97A4C1;
+                margin: 4px 0;
+                display: block;
+                text-decoration:none;
+            }
+                .login .box .content .form_group .forgot-password-link:hover {
+                    color: #37C12F
+                }
+
+        .login .box .below-logo .form-title {
+            text-align: center;
+        }
+
+        .login .box .below-logo img
+        {
+            margin: 0 auto;
+            display:block;
+            width:72px;
+        }
+
+        .login .box .below-logo a.copyright {
+            color: #961722;
+        }

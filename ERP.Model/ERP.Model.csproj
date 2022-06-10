@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1586E785-74EB-4981-8EEA-3557CD2FFC56}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP.Model</RootNamespace>
+    <AssemblyName>ERP.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\AttendanceRequest.cs" />
+    <Compile Include="API\DeviceRegistration.cs" />
+    <Compile Include="API\ForgotPasswordRequest.cs" />
+    <Compile Include="API\LoginRequest.cs" />
+    <Compile Include="API\LoginResponse.cs" />
+    <Compile Include="BioMetricDevice\DeviceModel.cs" />
+    <Compile Include="BioMetricDevice\EmployeeAttendanceDeviceModel.cs" />
+    <Compile Include="BioMetricDevice\EmployeeDeviceMapModel.cs" />
+    <Compile Include="BioMetricDevice\EmployeeModel.cs" />
+    <Compile Include="DeviceSessionDetail.cs" />
+    <Compile Include="General\CategoryModel.cs" />
+    <Compile Include="General\GeneralModel.cs" />
+    <Compile Include="General\Company.cs" />
+    <Compile Include="General\Dashboard.cs" />
+    <Compile Include="General\Interview.cs" />
+    <Compile Include="GenericForm\ValueModel.cs" />
+    <Compile Include="GenericForm\FieldModel.cs" />
+    <Compile Include="GenericForm\FormModel.cs" />
+    <Compile Include="HRAndPayRoll\Currency.cs" />
+    <Compile Include="HRAndPayRoll\Payroll\PayrollMasterModel.cs" />
+    <Compile Include="HRAndPayRoll\Payroll\PayrollCutOff.cs" />
+    <Compile Include="HRAndPayRoll\State.cs" />
+    <Compile Include="HRAndPayRoll\Country.cs" />
+    <Compile Include="HRAndPayRoll\Education.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeAttendanceDevice.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeAttendances.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeLoans.cs" />
+    <Compile Include="HRAndPayRoll\EmployeePaidSalarys.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeSalarys.cs" />
+    <Compile Include="HRAndPayRoll\Employee.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeAttachments.cs" />
+    <Compile Include="HRAndPayRoll\FinancialYear.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeLeaveCategorys.cs" />
+    <Compile Include="HRAndPayRoll\Shift.cs" />
+    <Compile Include="HRAndPayRoll\Allowance.cs" />
+    <Compile Include="HRAndPayRoll\Deduction.cs" />
+    <Compile Include="HRAndPayRoll\Holiday.cs" />
+    <Compile Include="HRAndPayRoll\LeaveCategory.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeType.cs" />
+    <Compile Include="HRAndPayRoll\Department.cs" />
+    <Compile Include="HRAndPayRoll\Designation.cs" />
+    <Compile Include="HRAndPayRoll\EmployeeGrade.cs" />
+    <Compile Include="IpInformationModel.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="LicenseGenerateModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="SessionDetail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Common\ERP.Common.csproj">
+      <Project>{80d574d8-5877-4a58-825d-fe394bba45d5}</Project>
+      <Name>ERP.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

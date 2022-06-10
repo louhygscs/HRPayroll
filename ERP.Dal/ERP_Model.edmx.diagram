@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fde66cd77a72459ba5feb35b3fc0f0f7" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="ERPModel.AllowanceMaster" Width="1.5" PointX="6" PointY="44.5" />
+        <EntityTypeShape EntityType="ERPModel.CountryMaster" Width="1.5" PointX="5.75" PointY="6.875" />
+        <EntityTypeShape EntityType="ERPModel.CurrencyMaster" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="ERPModel.DeductionMaster" Width="1.5" PointX="3" PointY="18.625" />
+        <EntityTypeShape EntityType="ERPModel.DepartmentMaster" Width="1.5" PointX="0.75" PointY="37.25" />
+        <EntityTypeShape EntityType="ERPModel.DesignationMaster" Width="1.5" PointX="0.75" PointY="29.75" />
+        <EntityTypeShape EntityType="ERPModel.DeviceMaster" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ERPModel.EducationMaster" Width="1.5" PointX="3.75" PointY="43.875" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeAllowanceMap" Width="1.5" PointX="8.25" PointY="33.5" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeAttachment" Width="1.5" PointX="5.25" PointY="56" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeAttendance" Width="1.5" PointX="5.25" PointY="64.125" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeAttendanceDevice" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeDeductionMap" Width="1.5" PointX="5.25" PointY="23.5" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeDeviceMap" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeGradeMaster" Width="1.5" PointX="0.75" PointY="24.5" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeLeaveCategory" Width="1.5" PointX="8.25" PointY="23.625" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeLeaveMap" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeLoan" Width="1.5" PointX="5.25" PointY="38.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeMaster" Width="1.5" PointX="3" PointY="22.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeePaidAllowanceMap" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeePaidDeductionMap" Width="1.5" PointX="11.5" PointY="3.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeePaidLoan" Width="1.5" PointX="7.5" PointY="39.125" />
+        <EntityTypeShape EntityType="ERPModel.EmployeePaidSalary" Width="1.5" PointX="11.25" PointY="27.125" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeSalary" Width="1.5" PointX="5.25" PointY="59.875" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeTypeMaster" Width="1.5" PointX="0.75" PointY="33.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeWorkingDay" Width="1.5" PointX="5.25" PointY="35.25" />
+        <EntityTypeShape EntityType="ERPModel.History" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERPModel.HolidayMaster" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERPModel.InterviewAttachment" Width="1.5" PointX="8.25" PointY="29.625" />
+        <EntityTypeShape EntityType="ERPModel.InterviewMaster" Width="1.5" PointX="6" PointY="27.75" />
+        <EntityTypeShape EntityType="ERPModel.InvoiceDetail" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="ERPModel.InvoiceMaster" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="ERPModel.IpInformation" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERPModel.LeaveCategoryMaster" Width="1.5" PointX="6" PointY="19.875" />
+        <EntityTypeShape EntityType="ERPModel.LicenseKeyMaster" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPModel.ModuleMaster" Width="1.5" PointX="11.25" PointY="18.875" />
+        <EntityTypeShape EntityType="ERPModel.RoleMaster" Width="1.5" PointX="9" PointY="20.25" />
+        <EntityTypeShape EntityType="ERPModel.ShiftMaster" Width="1.5" PointX="0.75" PointY="40.75" />
+        <EntityTypeShape EntityType="ERPModel.StateMaster" Width="1.5" PointX="8" PointY="6.875" />
+        <EntityTypeShape EntityType="ERPModel.UserMaster" Width="1.5" PointX="11.25" PointY="22.125" />
+        <EntityTypeShape EntityType="ERPModel.UserModuleMap" Width="1.5" PointX="13.5" PointY="23.125" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAllowanceMap_AllowanceMaster" />
+        <AssociationConnector Association="ERPModel.FK_StateMaster_CountryMaster" />
+        <AssociationConnector Association="ERPModel.FK_InvoiceMaster_CurrencyMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeDeductionMap_DeductionMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DepartmentMaster" />
+        <AssociationConnector Association="ERPModel.FK_InterviewMaster_DepartmentMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DesignationMaster" />
+        <AssociationConnector Association="ERPModel.FK_InterviewMaster_DesignationMaster" />
+        <AssociationConnector Association="ERPModel.FK_InterviewMaster_EducationMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAttachment_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAttendance_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeLeaveCategory_LeaveCategoryMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeLoan_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeePaidLoan_EmployeeLoan" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_ShiftMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeSalary_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserMaster_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_InterviewAttechment_InterviewMaster" />
+        <AssociationConnector Association="ERPModel.FK_InvoiceDetail_InvoiceMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserModuleMap_ModuleMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserMaster_RoleMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserModuleMap_UserMaster" />
+        <EntityTypeShape EntityType="ERPModel.GlobalSetting" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ERPModel.FinancialYearMaster" Width="1.5" PointX="9" PointY="16.5" />
+        <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_FinancialYearMaster" />
+        <EntityTypeShape EntityType="ERPModel.FieldMaster" Width="1.5" PointX="13.625" PointY="14" />
+        <EntityTypeShape EntityType="ERPModel.FormMaster" Width="1.5" PointX="11.375" PointY="14.125" />
+        <EntityTypeShape EntityType="ERPModel.ValueMaster" Width="1.5" PointX="15.875" PointY="14.125" />
+        <AssociationConnector Association="ERPModel.FK_FieldMasters_FormMasters" />
+        <AssociationConnector Association="ERPModel.FK_ValueMasters_FieldMasters" />
+        <EntityTypeShape EntityType="ERPModel.PayrollCutOffMaster" Width="1.5" PointX="15.625" PointY="2.5" />
+        <EntityTypeShape EntityType="ERPModel.DocumentMaster" Width="1.5" PointX="15.625" PointY="6.25" />
+        <EntityTypeShape EntityType="ERPModel.CategoryMaster" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERPModel.CompanyMaster" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeSchedule" Width="1.5" PointX="16.25" PointY="18.125" />
+        <EntityTypeShape EntityType="ERPModel.PayrollDTR" Width="1.5" PointX="20.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ERPModel.PayrollSummary" Width="1.5" PointX="20.375" PointY="18.75" />
+        <EntityTypeShape EntityType="ERPModel.PayrollMaster" Width="1.5" PointX="17.5" PointY="2.5" />
+        <AssociationConnector Association="ERPModel.FK_PayrollMasters_PayrollCutOffMasters" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeProfile" Width="1.5" PointX="22.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPModel.DTRRaw" Width="1.5" PointX="5.375" PointY="14.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,86 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/Main.Master" AutoEventWireup="true" CodeBehind="DeviceAttendance.aspx.cs" Inherits="ERP.Modules.General.DeviceAttendance" %>
+
+<asp:Content ID="cHead" ContentPlaceHolderID="cphHead" runat="server">
+    <title>Device Attendance</title>
+</asp:Content>
+<asp:Content ID="cBody" ContentPlaceHolderID="cphBody" runat="server">
+ 
+    <!-- /Breadcrumbs line -->
+    <div class="page-header">
+        
+		<div class="pageHeading">
+			<h3>Device Attendance</h3>
+		
+		</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget box  employessForms">
+                <div class="widget-header">
+					<div class="headingOftabel">
+						<h4>
+							Device <span>Attendance</span>
+						</h4>
+					</div>
+                  
+                   <!-- <div class="toolbar no-padding">
+                        <div class="btn-group">
+                            <span class="btn btn-xs widget-collapse"><i class="fa fa-angle-down"></i></span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="widget-content">
+                    <form id="frmMain" runat="server" class="form-horizontal row-border">
+                        <script src="<%=ResolveUrl("~/Scripts/Loader.js")%>"></script>
+                        <asp:ScriptManager ID="smMain" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="upMain" runat="server">
+                            <ContentTemplate>
+                                <div class="form-group efirst">
+                                    <label class="col-md-12 control-label">
+                                        Month :
+                                    </label>
+                                    <div class="col-md-12">
+                                        <asp:DropDownList ID="ddlMonth" runat="server" CssClass="form-control input-width-xlarge" AutoPostBack="True" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+
+                                <div class="widget box" runat="server" id="divcolor" visible="false">
+                                    <div class="widget-content">
+                                        <div class="greenFilled margin5 sizeFilled"></div>
+                                        <div class="margin5">Present</div>
+                                        <div class="redFilled margin5 sizeFilled"></div>
+                                        <div class="margin5">Leave</div>
+                                        <div class="cyanFilled margin5 sizeFilled"></div>
+                                        <div class="margin5">Holiday</div>
+                                        <div class="blueFilled margin5 sizeFilled"></div>
+                                        <div class="margin5">Weekly Off</div>
+                                        <br />
+                                    </div>
+                                </div>
+
+                                <asp:GridView ID="gvDeviceAttendance" runat="server" AutoGenerateColumns="False" CssClass="table dataTable trHeader table-bordered gvDeviceAttendance">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Date" HeaderStyle-Width="15%" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAttendanceDate" CssClass='<%#setClass(Convert.ToInt32(Eval("AttendanceType")))%>' runat="server" Text='<%# Eval("AttendanceDateValue") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField HeaderText="Attendances" DataField="Attendances" HeaderStyle-Width="40%" HeaderStyle-HorizontalAlign="Left" />
+                                        <asp:TemplateField HeaderText="Type" HeaderStyle-Width="15%" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAttendanceType" CssClass='<%#setClass(Convert.ToInt32(Eval("AttendanceType")))%>' runat="server" Text='<%# Eval("Type") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField HeaderText="Description" DataField="Description" HeaderStyle-Width="30%" HeaderStyle-HorizontalAlign="Left" />
+                                    </Columns>
+                                    <EmptyDataRowStyle BackColor="#F9F9F9" />
+                                </asp:GridView>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>

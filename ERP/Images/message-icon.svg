@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="message-icon" transform="translate(0 0)">
+    <path id="message-icon-2" data-name="message-icon" d="M12.5,16.25H6.25l2.285-2.5H16.25A1.251,1.251,0,0,0,17.5,12.5V5h1.25A1.251,1.251,0,0,1,20,6.25V15a1.251,1.251,0,0,1-1.25,1.25h-2.5V20Zm-8.749-5H1.25A1.251,1.251,0,0,1,0,10V1.25A1.25,1.25,0,0,1,1.25,0h12.5A1.25,1.25,0,0,1,15,1.25V10A1.251,1.251,0,0,1,13.75,11.25H7.5L3.751,15Z" transform="translate(0 0)" fill="#ffca83"/>
+  </g>
+</svg>
