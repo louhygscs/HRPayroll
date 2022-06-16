@@ -7,4 +7,3 @@
 
 <asp:Content ID="cBody" ContentPlaceHolderID="cphBody" runat="server">
 </asp:Content>
-s

@@ -182,6 +182,28 @@
                                 Company Settings
                             </a>
                         </li>
+                        <!-- Administrator -->
+                        <li class="liSubMenu liRecruitment" id="li1" runat="server">
+                            <a href="javascript:void(0);">
+                                <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Recruitment" />
+                                System Configuration
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="liSubMenu liSystemRole" id="li2" runat="server">
+                                    <a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/Role/RoleList.aspx") %>">
+                                        <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Interview" />
+                                        Role
+                                    </a>
+                                </li>
+                                <li class="liSubMenu liSystemUser" id="li3" runat="server">
+                                    <a href="<%=ResolveUrl("~/Modules/HRAndPayRoll/Masters/User/UserList.aspx") %>">
+                                        <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="Interview" />
+                                        User
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- end Administrator -->
                           <li class="liSubMenu liGlobalSettings" id="liGlobalSettings" runat="server">
                             <a href="<%=ResolveUrl("~/Modules/General/GlobalSetting.aspx") %>">
                                 <img src="<%=ResolveUrl("~/Images/sidebar/settings-gear-64.svg") %>" class="svg" alt="global setting" />
