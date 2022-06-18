@@ -228,6 +228,8 @@
     <Content Include="Modules\HRAndPayRoll\Masters\Role\RoleSave.aspx" />
     <Content Include="Modules\HRAndPayRoll\Masters\StateList.aspx" />
     <Content Include="Modules\HRAndPayRoll\Masters\StateSave.aspx" />
+    <Content Include="Modules\HRAndPayRoll\Masters\User\UserList.aspx" />
+    <Content Include="Modules\HRAndPayRoll\Masters\User\UserSave.aspx" />
     <Content Include="Modules\HRAndPayRoll\Reports\Attendance.aspx" />
     <Content Include="Modules\HRAndPayRoll\Reports\DeviceAttendance.aspx" />
     <Content Include="Modules\HRAndPayRoll\Reports\EmployeeDetail.aspx" />
@@ -1120,6 +1122,20 @@
     <Compile Include="Modules\HRAndPayRoll\Masters\StateSave.aspx.designer.cs">
       <DependentUpon>StateSave.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\HRAndPayRoll\Masters\User\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\HRAndPayRoll\Masters\User\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HRAndPayRoll\Masters\User\UserSave.aspx.cs">
+      <DependentUpon>UserSave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\HRAndPayRoll\Masters\User\UserSave.aspx.designer.cs">
+      <DependentUpon>UserSave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\HRAndPayRoll\Reports\Attendance.aspx.cs">
       <DependentUpon>Attendance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1500,7 +1516,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\HRAndPayRoll\Masters\EmployeeProfile\" />
-    <Folder Include="Modules\HRAndPayRoll\Masters\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ERP.Common\ERP.Common.csproj">

@@ -16,7 +16,6 @@ namespace ERP.Api
 
         #endregion
 
-
         #region Methods
 
         public static bool SendMail(string p_Subject, string p_Body, List<string> p_ToMailIds)

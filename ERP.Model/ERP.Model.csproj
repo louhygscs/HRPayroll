@@ -61,6 +61,7 @@
     <Compile Include="HRAndPayRoll\Currency.cs" />
     <Compile Include="HRAndPayRoll\Payroll\PayrollMasterModel.cs" />
     <Compile Include="HRAndPayRoll\Payroll\PayrollCutOff.cs" />
+    <Compile Include="HRAndPayRoll\Role\RoleModel.cs" />
     <Compile Include="HRAndPayRoll\State.cs" />
     <Compile Include="HRAndPayRoll\Country.cs" />
     <Compile Include="HRAndPayRoll\Education.cs" />

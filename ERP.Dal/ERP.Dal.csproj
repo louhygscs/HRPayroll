@@ -184,6 +184,7 @@
     <Compile Include="Implemention\General\DocumentService.cs" />
     <Compile Include="Implemention\HRAdmin\PayrollService.cs" />
     <Compile Include="Implemention\CurrencyService.cs" />
+    <Compile Include="Implemention\Role\RoleService.cs" />
     <Compile Include="Implemention\StateService.cs" />
     <Compile Include="Implemention\DeviceService.cs" />
     <Compile Include="Implemention\CountryService.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Interface\IDepartmentService.cs" />
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Interface\ILookupService.cs" />
+    <Compile Include="Interface\Role\IRoleService.cs" />
     <Compile Include="InterviewAttachment.cs">
       <DependentUpon>ERP_Model.tt</DependentUpon>
     </Compile>
