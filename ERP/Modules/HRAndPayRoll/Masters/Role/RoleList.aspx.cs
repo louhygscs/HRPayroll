@@ -1,4 +1,8 @@
-﻿using ERP.Helpers;
+﻿using ERP.Common;
+using ERP.Dal.Implemention;
+using ERP.Dal.Interface;
+using ERP.Helpers;
+using ERP.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,19 +50,19 @@ namespace ERP.Modules.HRAndPayRoll.Masters.Role
         {
             try
             {
-                ICountryService _ICountryService = new CountryService();
+                IRoleService _IRoleService = new RoleService();
 
-                Result<List<Country>> _Result = _ICountryService.GetCountryList();
+                Result<List<RoleModel>> _Result = _IRoleService.GetRoleList();
 
                 if (_Result.IsSuccess)
                 {
-                    gvCountry.DataSource = _Result.Data;
-                    gvCountry.DataBind();
+                    gvRole.DataSource = _Result.Data;
+                    gvRole.DataBind();
 
-                    if (gvCountry.Rows.Count > 0)
+                    if (gvRole.Rows.Count > 0)
                     {
-                        gvCountry.UseAccessibleHeader = true;
-                        gvCountry.HeaderRow.TableSection = TableRowSection.TableHeader;
+                        gvRole.UseAccessibleHeader = true;
+                        gvRole.HeaderRow.TableSection = TableRowSection.TableHeader;
                     }
                 }
                 else

@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace ERP.Dal.Implemention
 {
-    public class CountryService : ICountryService
+    public class RoleService : IRoleService
     {
-        public Result<List<Country>> GetCountryList()
+        public Result<List<RoleModel>> GetRoleList()
         {
-            Result<List<Country>> _Result = new Result<List<Country>>();
+            Result<List<RoleModel>> _Result = new Result<List<RoleModel>>();
 
             try
             {
                 _Result.IsSuccess = false;
                 using (var dbContext = new ERPEntities())
                 {
-                    var _Query = from e in dbContext.CountryMasters
+                    var _Query = from e in dbContext.RoleMasters
                                  where e.IsActive == true
-                                 select new Country
+                                 select new RoleModel
                                  {
-                                     CountryID = e.CountryID,
-                                     CountryName = e.CountryName
+                                     RoleID = e.RoleID,
+                                     RoleName = e.RoleName
                                  };
 
                     _Result.Data = _Query.ToList();
@@ -42,7 +42,7 @@ namespace ERP.Dal.Implemention
             return _Result;
         }
 
-        public Result<Boolean> DeleteCountryById(Guid p_CountryId, Guid p_UserId)
+        public Result<Boolean> DeleteRoleById(Guid p_RoleId, Guid p_UserId)
         {
             Result<Boolean> _Result = new Result<Boolean>();
 
@@ -52,15 +52,15 @@ namespace ERP.Dal.Implemention
 
                 using (var dbContext = new ERPEntities())
                 {
-                    int _Count = dbContext.EmployeeMasters.Where(e => e.CountryId == p_CountryId && e.IsActive == true).Count();
+                    int _Count = dbContext.UserMasters.Where(e => e.RoleId == p_RoleId && e.IsActive == true).Count();
 
                     if (_Count <= 0)
                     {
-                        CountryMaster _CountryMaster = dbContext.CountryMasters.Where(d => d.CountryID == p_CountryId).FirstOrDefault();
+                        RoleMaster _RoleMaster = dbContext.RoleMasters.Where(d => d.RoleID == p_RoleId).FirstOrDefault();
 
-                        if (_CountryMaster != null)
+                        if (_RoleMaster != null)
                         {
-                            _CountryMaster.IsActive = false;
+                            _RoleMaster.IsActive = false;
                             dbContext.SaveChanges();
                             _Result.IsSuccess = true;
                         }
@@ -90,29 +90,29 @@ namespace ERP.Dal.Implemention
             return _Result;
         }
 
-        public Result<Country> GetCountryById(Guid p_CountryId)
+        public Result<RoleModel> GetRoleById(Guid p_RoleId)
         {
-            Result<Country> _Result = new Result<Country>();
+            Result<RoleModel> _Result = new Result<RoleModel>();
             try
             {
                 _Result.IsSuccess = false;
 
                 using (var dbContext = new ERPEntities())
                 {
-                    var _Query = from d in dbContext.CountryMasters
-                                 where d.CountryID == p_CountryId
-                                 select new Country
+                    var _Query = from d in dbContext.RoleMasters
+                                 where d.RoleID == p_RoleId
+                                 select new RoleModel
                                  {
-                                     CountryID = d.CountryID,
-                                     CountryName = d.CountryName,
-                                     Code = d.Code
+                                     RoleID = d.RoleID,
+                                     RoleName = d.RoleName,
+                                     IsActive = d.IsActive
                                  };
 
-                    Country _Country = _Query.FirstOrDefault();
-                    if (_Country != null)
+                    RoleModel _RoleMaster = _Query.FirstOrDefault();
+                    if (_RoleMaster != null)
                     {
                         _Result.IsSuccess = true;
-                        _Result.Data = _Country;
+                        _Result.Data = _RoleMaster;
                     }
                     else
                     {
@@ -129,44 +129,40 @@ namespace ERP.Dal.Implemention
             return _Result;
         }
 
-        public Result<bool> SaveCountry(Country p_Country, Guid p_UserId)
+        public Result<bool> SaveRole(RoleModel p_Role, Guid p_UserId)
         {
             Result<bool> _Result = new Result<bool>();
             using (var dbContext = new ERPEntities())
             {
-                CountryMaster _EducationMasterExist = dbContext.CountryMasters.Where(x => x.CountryID != p_Country.CountryID && x.IsActive == true && x.CountryName == p_Country.CountryName).FirstOrDefault();
-                if (_EducationMasterExist == null)
-                {
-                    CountryMaster _CountryMaster = new CountryMaster();
+                RoleMaster _RoleMaster = dbContext.RoleMasters.Where(e => e.RoleName == p_Role.RoleName).FirstOrDefault();
 
-                    if (p_Country.CountryID == Guid.Empty)
+                if (_RoleMaster == null)
+                {
+                    _RoleMaster = new RoleMaster();
+
+                    if (p_Role.RoleID == Guid.Empty)
                     {
-                        _CountryMaster.CountryID   = Guid.NewGuid();
-                        _CountryMaster.CountryName = p_Country.CountryName;
-                        _CountryMaster.Code        = p_Country.Code;
-                        _CountryMaster.CreatedDate = DateTime.Now;
-                        _CountryMaster.IsActive    = true;
+                        _RoleMaster.RoleID   = Guid.NewGuid();
+                        _RoleMaster.RoleName = p_Role.RoleName;
+                        _RoleMaster.IsActive    = true;
                     }
                     else
                     {
-                        _CountryMaster = dbContext.CountryMasters.Where(e => e.CountryID == p_Country.CountryID).FirstOrDefault();
+                        _RoleMaster = dbContext.RoleMasters.Where(e => e.RoleID == p_Role.RoleID).FirstOrDefault();
 
-                        //_CountryMaster.ModifiedDate = DateTime.Now;
-                        //_CountryMaster.ModifiedBy = p_UserId;
+                        _RoleMaster.RoleName = p_Role.RoleName;
+                        _RoleMaster.IsActive = p_Role.IsActive;
                     }
 
-                    _CountryMaster.CountryName = p_Country.CountryName;
-                    _CountryMaster.Code = p_Country.Code;
-
-                    if (p_Country.CountryID == Guid.Empty)
+                    if (p_Role.RoleID == Guid.Empty)
                     {
-                        dbContext.CountryMasters.Add(_CountryMaster);
+                        dbContext.RoleMasters.Add(_RoleMaster);
                     }
 
                     dbContext.SaveChanges();
 
                     _Result.IsSuccess = true;
-                    _Result.Id = Convert.ToString(_CountryMaster.CountryID);
+                    _Result.Id = Convert.ToString(_RoleMaster.RoleID);
                     _Result.Data = true;
                 }
                 else
