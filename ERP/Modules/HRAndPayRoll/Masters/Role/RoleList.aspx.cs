@@ -21,6 +21,7 @@ namespace ERP.Modules.HRAndPayRoll.Masters.Role
         #endregion
 
         #region Page Events
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionHelper.SessionDetail == null)
@@ -28,7 +29,7 @@ namespace ERP.Modules.HRAndPayRoll.Masters.Role
                 Response.Redirect("~/Modules/Login.aspx", true);
             }
 
-            SessionHelper.SelectMenuSession = "liSystem_liRole_liList";
+            SessionHelper.SelectMenuSession = "liRole_liList";
 
             if (!IsPostBack)
             {
@@ -43,9 +44,6 @@ namespace ERP.Modules.HRAndPayRoll.Masters.Role
         #endregion
 
         #region Events
-
-        #region Grid Events
-
         protected void gvRole_PreRender(object sender, EventArgs e)
         {
             try
@@ -77,13 +75,37 @@ namespace ERP.Modules.HRAndPayRoll.Masters.Role
             }
         }
 
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton _btnDelete = (LinkButton)sender;
+
+                Guid _EducationId = new Guid(_btnDelete.CommandArgument);
+
+                IEducationService _IEducationService = new EducationService();
+
+                Result<Boolean> _Result = _IEducationService.DeleteEducationById(_EducationId, SessionHelper.SessionDetail.UserID);
+
+                if (_Result.IsSuccess)
+                {
+                    IHistoryService _IHistoryService = new HistoryService();
+                    _IHistoryService.InsertHistory<Guid>(Convert.ToString(_EducationId), TableType.EducationMaster, OperationType.Delete, _EducationId, SessionHelper.SessionDetail.UserID);
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "DeletionSuccessMsg", " $(document).ready(function() {Common.ShowToastrMessage(Common.Variable.Success, Common.Variable.Success, '" + String.Format(GlobalMsg.DeletionSuccessMsg, "Education") + "');});", true);
+                    gvRole_PreRender(gvRole, new EventArgs());
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "DeletionFailMsg", " $(document).ready(function() {Common.ShowToastrMessage(Common.Variable.Error, Common.Variable.Error, '" + String.Format(_Result.Message, "Education") + "');});", true);
+                }
+            }
+            catch (Exception _Exception)
+            {
+                _Logger.Error(GlobalMsg.ExceptionErrMsg, _Exception);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "ExceptionMsg", " $(document).ready(function() {Common.ShowToastrMessage(Common.Variable.Error, Common.Variable.Error, '" + GlobalMsg.ExceptionErrMsg + "');});", true);
+            }
+        }
         #endregion
-
-        #region Button Events
-        #endregion
-
-        #endregion
-
-
     }
 }

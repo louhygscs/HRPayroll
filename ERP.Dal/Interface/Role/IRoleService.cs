@@ -8,12 +8,10 @@ namespace ERP.Dal.Interface
     {
         Result<List<RoleModel>> GetRoleList();
 
-        Result<Boolean> DeleteRoleById(Guid p_RoleID, Guid p_UserId);
+        Result<Boolean> DeleteRoleById(Guid p_RoleId, Guid p_UserId);
 
-        Result<RoleModel> GetRoleById(Guid p_RoleID);
+        Result<RoleModel> GetRoleById(Guid p_RoleId);
 
-        Result<bool> SaveRole(RoleModel p_RoleName, Guid p_UserId);
-
-
+        Result<bool> SaveRole(RoleModel p_Role, Guid p_UserId);
     }
 }

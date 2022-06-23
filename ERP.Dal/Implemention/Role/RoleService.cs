@@ -52,26 +52,17 @@ namespace ERP.Dal.Implemention
 
                 using (var dbContext = new ERPEntities())
                 {
-                    int _Count = dbContext.UserMasters.Where(e => e.RoleId == p_RoleId && e.IsActive == true).Count();
+                    RoleMaster _RoleMaster = dbContext.RoleMasters.Where(d => d.RoleID == p_RoleId).FirstOrDefault();
 
-                    if (_Count <= 0)
+                    if (_RoleMaster != null)
                     {
-                        RoleMaster _RoleMaster = dbContext.RoleMasters.Where(d => d.RoleID == p_RoleId).FirstOrDefault();
-
-                        if (_RoleMaster != null)
-                        {
-                            _RoleMaster.IsActive = false;
-                            dbContext.SaveChanges();
-                            _Result.IsSuccess = true;
-                        }
-                        else
-                        {
-                            _Result.Message = GlobalMsg.NoRecordFoundMsg;
-                        }
+                        _RoleMaster.IsActive = false;
+                        dbContext.SaveChanges();
+                        _Result.IsSuccess = true;
                     }
                     else
                     {
-                        _Result.Message = GlobalMsg.ReferenceExistMsg;
+                        _Result.Message = GlobalMsg.NoRecordFoundMsg;
                     }
                 }
 
@@ -104,15 +95,14 @@ namespace ERP.Dal.Implemention
                                  select new RoleModel
                                  {
                                      RoleID = d.RoleID,
-                                     RoleName = d.RoleName,
-                                     IsActive = d.IsActive
+                                     RoleName = d.RoleName
                                  };
 
-                    RoleModel _RoleMaster = _Query.FirstOrDefault();
-                    if (_RoleMaster != null)
+                    RoleModel _Role = _Query.FirstOrDefault();
+                    if (_Role != null)
                     {
                         _Result.IsSuccess = true;
-                        _Result.Data = _RoleMaster;
+                        _Result.Data = _Role;
                     }
                     else
                     {
@@ -142,7 +132,7 @@ namespace ERP.Dal.Implemention
 
                     if (p_Role.RoleID == Guid.Empty)
                     {
-                        _RoleMaster.RoleID   = Guid.NewGuid();
+                        _RoleMaster.RoleID = Guid.NewGuid();
                         _RoleMaster.RoleName = p_Role.RoleName;
                         _RoleMaster.IsActive    = true;
                     }
@@ -150,8 +140,11 @@ namespace ERP.Dal.Implemention
                     {
                         _RoleMaster = dbContext.RoleMasters.Where(e => e.RoleID == p_Role.RoleID).FirstOrDefault();
 
-                        _RoleMaster.RoleName = p_Role.RoleName;
-                        _RoleMaster.IsActive = p_Role.IsActive;
+                        if(_RoleMaster != null)
+                        {
+                            _RoleMaster.RoleName = p_Role.RoleName;
+                            _RoleMaster.IsActive = p_Role.IsActive;
+                        }
                     }
 
                     if (p_Role.RoleID == Guid.Empty)

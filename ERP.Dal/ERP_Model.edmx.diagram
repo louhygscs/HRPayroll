@@ -23,7 +23,6 @@
         <EntityTypeShape EntityType="ERPModel.EmployeeLeaveCategory" Width="1.5" PointX="8.25" PointY="23.625" />
         <EntityTypeShape EntityType="ERPModel.EmployeeLeaveMap" Width="1.5" PointX="9.75" PointY="3.75" />
         <EntityTypeShape EntityType="ERPModel.EmployeeLoan" Width="1.5" PointX="5.25" PointY="38.75" />
-        <EntityTypeShape EntityType="ERPModel.EmployeeMaster" Width="1.5" PointX="3" PointY="22.75" />
         <EntityTypeShape EntityType="ERPModel.EmployeePaidAllowanceMap" Width="1.5" PointX="4.75" PointY="10.75" />
         <EntityTypeShape EntityType="ERPModel.EmployeePaidDeductionMap" Width="1.5" PointX="11.5" PointY="3.75" />
         <EntityTypeShape EntityType="ERPModel.EmployeePaidLoan" Width="1.5" PointX="7.5" PointY="39.125" />
@@ -44,37 +43,19 @@
         <EntityTypeShape EntityType="ERPModel.RoleMaster" Width="1.5" PointX="9" PointY="20.25" />
         <EntityTypeShape EntityType="ERPModel.ShiftMaster" Width="1.5" PointX="0.75" PointY="40.75" />
         <EntityTypeShape EntityType="ERPModel.StateMaster" Width="1.5" PointX="8" PointY="6.875" />
-        <EntityTypeShape EntityType="ERPModel.UserMaster" Width="1.5" PointX="11.25" PointY="22.125" />
         <EntityTypeShape EntityType="ERPModel.UserModuleMap" Width="1.5" PointX="13.5" PointY="23.125" />
         <AssociationConnector Association="ERPModel.FK_EmployeeAllowanceMap_AllowanceMaster" />
         <AssociationConnector Association="ERPModel.FK_StateMaster_CountryMaster" />
         <AssociationConnector Association="ERPModel.FK_InvoiceMaster_CurrencyMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeeDeductionMap_DeductionMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DepartmentMaster" />
         <AssociationConnector Association="ERPModel.FK_InterviewMaster_DepartmentMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DesignationMaster" />
         <AssociationConnector Association="ERPModel.FK_InterviewMaster_DesignationMaster" />
         <AssociationConnector Association="ERPModel.FK_InterviewMaster_EducationMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeAttachment_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeAttendance_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeeLeaveCategory_LeaveCategoryMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeLoan_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeePaidLoan_EmployeeLoan" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_ShiftMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeSalary_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_UserMaster_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_InterviewAttechment_InterviewMaster" />
         <AssociationConnector Association="ERPModel.FK_InvoiceDetail_InvoiceMaster" />
         <AssociationConnector Association="ERPModel.FK_UserModuleMap_ModuleMaster" />
-        <AssociationConnector Association="ERPModel.FK_UserMaster_RoleMaster" />
-        <AssociationConnector Association="ERPModel.FK_UserModuleMap_UserMaster" />
         <EntityTypeShape EntityType="ERPModel.GlobalSetting" Width="1.5" PointX="0.75" PointY="13.75" />
         <EntityTypeShape EntityType="ERPModel.FinancialYearMaster" Width="1.5" PointX="9" PointY="16.5" />
         <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_FinancialYearMaster" />
@@ -92,8 +73,27 @@
         <EntityTypeShape EntityType="ERPModel.PayrollSummary" Width="1.5" PointX="20.375" PointY="18.75" />
         <EntityTypeShape EntityType="ERPModel.PayrollMaster" Width="1.5" PointX="17.5" PointY="2.5" />
         <AssociationConnector Association="ERPModel.FK_PayrollMasters_PayrollCutOffMasters" />
-        <EntityTypeShape EntityType="ERPModel.EmployeeProfile" Width="1.5" PointX="22.375" PointY="0.75" />
         <EntityTypeShape EntityType="ERPModel.DTRRaw" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeMaster" Width="1.5" PointX="3" PointY="25.75" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeProfile" Width="1.5" PointX="9" PointY="44.5" />
+        <EntityTypeShape EntityType="ERPModel.UserMaster" Width="1.5" PointX="11.25" PointY="22.25" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DepartmentMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DesignationMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAttachment_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeAttendance_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeLoan_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeMaster_ShiftMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeSalary_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserMaster_EmployeeMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserMaster_RoleMaster" />
+        <AssociationConnector Association="ERPModel.FK_UserModuleMap_UserMaster" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

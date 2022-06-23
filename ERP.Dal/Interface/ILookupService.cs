@@ -38,6 +38,7 @@ namespace ERP.Dal.Interface
         Result<List<Dashboard>> GetSalaryChartDetailsByEmployeeId(Guid p_EmployeeId, Guid p_FinancialYearId);
 
         Result<List<Item>> GetAllActiveEmployee();
+        Result<List<Item>> GetAllActiveEmployeeProfile(Guid p_WorkLocationId);
 
         Result<List<Item>> GetEmployeePerWorkLocationId(Guid p_WorkLocationId);
         Result<List<Dashboard>> GetSalaryChartInfoForAllEmployee(Guid p_p_FinancialYearId);
@@ -50,6 +51,6 @@ namespace ERP.Dal.Interface
 
         Result<List<Item>> GetSchedule();
 
-
+        Result<List<Item>> GetRoleList();
     }
 }

@@ -25,7 +25,6 @@ namespace ERP.Dal
             this.EmployeePaidSalaries = new HashSet<EmployeePaidSalary>();
             this.EmployeeSalaries = new HashSet<EmployeeSalary>();
             this.EmployeeWorkingDays = new HashSet<EmployeeWorkingDay>();
-            this.UserMasters = new HashSet<UserMaster>();
         }
     
         public System.Guid EmployeeID { get; set; }
@@ -110,6 +109,5 @@ namespace ERP.Dal
         public virtual ICollection<EmployeePaidSalary> EmployeePaidSalaries { get; set; }
         public virtual ICollection<EmployeeSalary> EmployeeSalaries { get; set; }
         public virtual ICollection<EmployeeWorkingDay> EmployeeWorkingDays { get; set; }
-        public virtual ICollection<UserMaster> UserMasters { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace ERP.Dal
         public bool IsActive { get; set; }
         public bool IsComplete { get; set; }
     
-        public virtual EmployeeMaster EmployeeMaster { get; set; }
         public virtual ICollection<EmployeePaidLoan> EmployeePaidLoans { get; set; }
+        public virtual EmployeeMaster EmployeeMaster { get; set; }
     }
 }

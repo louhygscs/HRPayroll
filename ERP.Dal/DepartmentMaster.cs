@@ -16,8 +16,8 @@ namespace ERP.Dal
     {
         public DepartmentMaster()
         {
-            this.EmployeeMasters = new HashSet<EmployeeMaster>();
             this.InterviewMasters = new HashSet<InterviewMaster>();
+            this.EmployeeMasters = new HashSet<EmployeeMaster>();
         }
     
         public System.Guid DepartmentID { get; set; }
@@ -28,7 +28,7 @@ namespace ERP.Dal
         public System.DateTime ModifiedDate { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual ICollection<EmployeeMaster> EmployeeMasters { get; set; }
         public virtual ICollection<InterviewMaster> InterviewMasters { get; set; }
+        public virtual ICollection<EmployeeMaster> EmployeeMasters { get; set; }
     }
 }

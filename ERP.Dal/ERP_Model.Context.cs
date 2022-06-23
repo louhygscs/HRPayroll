@@ -43,7 +43,6 @@ namespace ERP.Dal
         public virtual DbSet<EmployeeLeaveCategory> EmployeeLeaveCategories { get; set; }
         public virtual DbSet<EmployeeLeaveMap> EmployeeLeaveMaps { get; set; }
         public virtual DbSet<EmployeeLoan> EmployeeLoans { get; set; }
-        public virtual DbSet<EmployeeMaster> EmployeeMasters { get; set; }
         public virtual DbSet<EmployeePaidAllowanceMap> EmployeePaidAllowanceMaps { get; set; }
         public virtual DbSet<EmployeePaidDeductionMap> EmployeePaidDeductionMaps { get; set; }
         public virtual DbSet<EmployeePaidLoan> EmployeePaidLoans { get; set; }
@@ -64,7 +63,6 @@ namespace ERP.Dal
         public virtual DbSet<RoleMaster> RoleMasters { get; set; }
         public virtual DbSet<ShiftMaster> ShiftMasters { get; set; }
         public virtual DbSet<StateMaster> StateMasters { get; set; }
-        public virtual DbSet<UserMaster> UserMasters { get; set; }
         public virtual DbSet<UserModuleMap> UserModuleMaps { get; set; }
         public virtual DbSet<GlobalSetting> GlobalSettings { get; set; }
         public virtual DbSet<FinancialYearMaster> FinancialYearMasters { get; set; }
@@ -79,7 +77,9 @@ namespace ERP.Dal
         public virtual DbSet<PayrollDTR> PayrollDTRs { get; set; }
         public virtual DbSet<PayrollSummary> PayrollSummaries { get; set; }
         public virtual DbSet<PayrollMaster> PayrollMasters { get; set; }
-        public virtual DbSet<EmployeeProfile> EmployeeProfiles { get; set; }
         public virtual DbSet<DTRRaw> DTRRaws { get; set; }
+        public virtual DbSet<EmployeeMaster> EmployeeMasters { get; set; }
+        public virtual DbSet<EmployeeProfile> EmployeeProfiles { get; set; }
+        public virtual DbSet<UserMaster> UserMasters { get; set; }
     }
 }

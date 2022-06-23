@@ -14,6 +14,11 @@ namespace ERP.Dal
     
     public partial class EmployeeProfile
     {
+        public EmployeeProfile()
+        {
+            this.UserMasters = new HashSet<UserMaster>();
+        }
+    
         public System.Guid EmployeeId { get; set; }
         public string PicImg { get; set; }
         public string EmployeeNo { get; set; }
@@ -66,5 +71,7 @@ namespace ERP.Dal
         public Nullable<bool> IsActive { get; set; }
         public Nullable<bool> IsResigned { get; set; }
         public Nullable<System.DateTime> DateResigned { get; set; }
+    
+        public virtual ICollection<UserMaster> UserMasters { get; set; }
     }
 }

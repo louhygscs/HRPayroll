@@ -49,7 +49,8 @@ namespace ERP.Common
         IterviewMaster = 22,
         CountryMaster = 23,
         StateMaster = 24,
-        CategoryMaster = 25
+        CategoryMaster = 25,
+        RoleMaster = 26
     };
 
     public enum EmployeeAttachmentType

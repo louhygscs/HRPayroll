@@ -528,6 +528,37 @@ namespace ERP.Dal.Implemention
             return _Result;
         }
 
+        public Result<List<Item>> GetAllActiveEmployeeProfile(Guid p_WorkLocationId)
+        {
+            Result<List<Item>> _Result = new Result<List<Item>>();
+
+            try
+            {
+                _Result.IsSuccess = false;
+                using (var dbContext = new ERPEntities())
+                {
+                    var _Query = from e in dbContext.EmployeeProfiles
+                                 where e.IsActive == true 
+                                 select new Item
+                                 {
+                                     Id = e.EmployeeId,
+                                     Text = e.LastName + ", " + e.FirstName + " " + e.MiddleName
+                                 };
+
+                    _Result.Data = _Query.ToList();
+                }
+
+                _Result.IsSuccess = true;
+            }
+            catch (Exception _Exception)
+            {
+                _Result.IsSuccess = false;
+                _Result.Message = _Exception.Message;
+                _Result.Exception = _Exception;
+            }
+            return _Result;
+        }
+
         public Result<List<Item>> GetEmployeePerWorkLocationId(Guid p_WorkLocationId)
         {
             Result<List<Item>> _Result = new Result<List<Item>>();
@@ -673,6 +704,38 @@ namespace ERP.Dal.Implemention
                                  {
                                      Id   = d.ShiftID,
                                      Text = d.Shift
+                                 };
+
+                    _Result.Data = _Query.ToList();
+                }
+
+                _Result.IsSuccess = true;
+            }
+            catch (Exception _Exception)
+            {
+                _Result.IsSuccess = false;
+                _Result.Message = _Exception.Message;
+                _Result.Exception = _Exception;
+            }
+
+            return _Result;
+        }
+
+        public Result<List<Item>> GetRoleList()
+        {
+            Result<List<Item>> _Result = new Result<List<Item>>();
+
+            try
+            {
+                _Result.IsSuccess = false;
+                using (var dbContext = new ERPEntities())
+                {
+                    var _Query = from d in dbContext.RoleMasters
+                                 where d.IsActive == true
+                                 select new Item
+                                 {
+                                     Id = d.RoleID,
+                                     Text = d.RoleName
                                  };
 
                     _Result.Data = _Query.ToList();

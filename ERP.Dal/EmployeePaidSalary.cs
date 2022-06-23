@@ -51,7 +51,7 @@ namespace ERP.Dal
         public Nullable<System.DateTime> SalaryFromDate { get; set; }
         public Nullable<System.DateTime> SalaryToDate { get; set; }
     
-        public virtual EmployeeMaster EmployeeMaster { get; set; }
         public virtual FinancialYearMaster FinancialYearMaster { get; set; }
+        public virtual EmployeeMaster EmployeeMaster { get; set; }
     }
 }

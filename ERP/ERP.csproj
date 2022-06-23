@@ -362,6 +362,7 @@
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\CountryList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\EducationList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Masters\AllEmployeeList.js" />
+    <Content Include="Scripts\Modules\HRAndPayRoll\Masters\User\UserList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Reports\MonthlyDeviceAttendance.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Transactions\EmployeeDailySalaryProcessList.js" />
     <Content Include="Scripts\Modules\HRAndPayRoll\Transactions\EmployeeWeeklySalaryProcessList.js" />

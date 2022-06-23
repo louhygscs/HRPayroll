@@ -1371,11 +1371,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserMaster_EmployeeMaster">
-          <End Role="EmployeeMasters" Type="Self.EmployeeMasters" Multiplicity="0..1" />
+          <End Role="EmployeeProfiles" Type="Self.EmployeeProfiles" Multiplicity="0..1" />
           <End Role="UserMasters" Type="Self.UserMasters" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EmployeeMasters">
-              <PropertyRef Name="EmployeeID" />
+            <Principal Role="EmployeeProfiles">
+              <PropertyRef Name="EmployeeId" />
             </Principal>
             <Dependent Role="UserMasters">
               <PropertyRef Name="EmployeeId" />
@@ -1600,7 +1600,7 @@
             <End Role="StateMasters" EntitySet="StateMasters" />
           </AssociationSet>
           <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="Self.FK_UserMaster_EmployeeMaster">
-            <End Role="EmployeeMasters" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeProfiles" EntitySet="EmployeeProfiles" />
             <End Role="UserMasters" EntitySet="UserMasters" />
           </AssociationSet>
           <AssociationSet Name="FK_UserMaster_RoleMaster" Association="Self.FK_UserMaster_RoleMaster">
@@ -1643,7 +1643,6 @@
           <EntitySet Name="EmployeeLeaveCategories" EntityType="ERPModel.EmployeeLeaveCategory" />
           <EntitySet Name="EmployeeLeaveMaps" EntityType="ERPModel.EmployeeLeaveMap" />
           <EntitySet Name="EmployeeLoans" EntityType="ERPModel.EmployeeLoan" />
-          <EntitySet Name="EmployeeMasters" EntityType="ERPModel.EmployeeMaster" />
           <EntitySet Name="EmployeePaidAllowanceMaps" EntityType="ERPModel.EmployeePaidAllowanceMap" />
           <EntitySet Name="EmployeePaidDeductionMaps" EntityType="ERPModel.EmployeePaidDeductionMap" />
           <EntitySet Name="EmployeePaidLoans" EntityType="ERPModel.EmployeePaidLoan" />
@@ -1664,7 +1663,6 @@
           <EntitySet Name="RoleMasters" EntityType="ERPModel.RoleMaster" />
           <EntitySet Name="ShiftMasters" EntityType="ERPModel.ShiftMaster" />
           <EntitySet Name="StateMasters" EntityType="ERPModel.StateMaster" />
-          <EntitySet Name="UserMasters" EntityType="ERPModel.UserMaster" />
           <EntitySet Name="UserModuleMaps" EntityType="ERPModel.UserModuleMap" />
           <AssociationSet Name="FK_EmployeeAllowanceMap_AllowanceMaster" Association="ERPModel.FK_EmployeeAllowanceMap_AllowanceMaster">
             <End Role="AllowanceMaster" EntitySet="AllowanceMasters" />
@@ -1682,17 +1680,9 @@
             <End Role="DeductionMaster" EntitySet="DeductionMasters" />
             <End Role="EmployeeDeductionMap" EntitySet="EmployeeDeductionMaps" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeMaster_DepartmentMaster" Association="ERPModel.FK_EmployeeMaster_DepartmentMaster">
-            <End Role="DepartmentMaster" EntitySet="DepartmentMasters" />
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-          </AssociationSet>
           <AssociationSet Name="FK_InterviewMaster_DepartmentMaster" Association="ERPModel.FK_InterviewMaster_DepartmentMaster">
             <End Role="DepartmentMaster" EntitySet="DepartmentMasters" />
             <End Role="InterviewMaster" EntitySet="InterviewMasters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeMaster_DesignationMaster" Association="ERPModel.FK_EmployeeMaster_DesignationMaster">
-            <End Role="DesignationMaster" EntitySet="DesignationMasters" />
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
           </AssociationSet>
           <AssociationSet Name="FK_InterviewMaster_DesignationMaster" Association="ERPModel.FK_InterviewMaster_DesignationMaster">
             <End Role="DesignationMaster" EntitySet="DesignationMasters" />
@@ -1702,65 +1692,13 @@
             <End Role="EducationMaster" EntitySet="EducationMasters" />
             <End Role="InterviewMaster" EntitySet="InterviewMasters" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeAllowanceMap_EmployeeMaster" Association="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeAllowanceMap" EntitySet="EmployeeAllowanceMaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeAttachment_EmployeeMaster" Association="ERPModel.FK_EmployeeAttachment_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeAttachment" EntitySet="EmployeeAttachments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeAttendance_EmployeeMaster" Association="ERPModel.FK_EmployeeAttendance_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeAttendance" EntitySet="EmployeeAttendances" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeDeductionMap_EmployeeMaster" Association="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeDeductionMap" EntitySet="EmployeeDeductionMaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeMaster_EmployeeGradeMaster" Association="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster">
-            <End Role="EmployeeGradeMaster" EntitySet="EmployeeGradeMasters" />
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeLeaveCategory_EmployeeMaster" Association="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeLeaveCategory" EntitySet="EmployeeLeaveCategories" />
-          </AssociationSet>
           <AssociationSet Name="FK_EmployeeLeaveCategory_LeaveCategoryMaster" Association="ERPModel.FK_EmployeeLeaveCategory_LeaveCategoryMaster">
             <End Role="LeaveCategoryMaster" EntitySet="LeaveCategoryMasters" />
             <End Role="EmployeeLeaveCategory" EntitySet="EmployeeLeaveCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeLoan_EmployeeMaster" Association="ERPModel.FK_EmployeeLoan_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeLoan" EntitySet="EmployeeLoans" />
-          </AssociationSet>
           <AssociationSet Name="FK_EmployeePaidLoan_EmployeeLoan" Association="ERPModel.FK_EmployeePaidLoan_EmployeeLoan">
             <End Role="EmployeeLoan" EntitySet="EmployeeLoans" />
             <End Role="EmployeePaidLoan" EntitySet="EmployeePaidLoans" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeMaster_EmployeeTypeMaster" Association="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster">
-            <End Role="EmployeeTypeMaster" EntitySet="EmployeeTypeMasters" />
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeMaster_ShiftMaster" Association="ERPModel.FK_EmployeeMaster_ShiftMaster">
-            <End Role="ShiftMaster" EntitySet="ShiftMasters" />
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeePaidSalary_EmployeeMaster" Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeePaidSalary" EntitySet="EmployeePaidSalaries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeSalary_EmployeeMaster" Association="ERPModel.FK_EmployeeSalary_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeSalary" EntitySet="EmployeeSalaries" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeWorkingDay_EmployeeMaster" Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="EmployeeWorkingDay" EntitySet="EmployeeWorkingDays" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="ERPModel.FK_UserMaster_EmployeeMaster">
-            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
-            <End Role="UserMaster" EntitySet="UserMasters" />
           </AssociationSet>
           <AssociationSet Name="FK_InterviewAttechment_InterviewMaster" Association="ERPModel.FK_InterviewAttechment_InterviewMaster">
             <End Role="InterviewMaster" EntitySet="InterviewMasters" />
@@ -1772,14 +1710,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_UserModuleMap_ModuleMaster" Association="ERPModel.FK_UserModuleMap_ModuleMaster">
             <End Role="ModuleMaster" EntitySet="ModuleMasters" />
-            <End Role="UserModuleMap" EntitySet="UserModuleMaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserMaster_RoleMaster" Association="ERPModel.FK_UserMaster_RoleMaster">
-            <End Role="RoleMaster" EntitySet="RoleMasters" />
-            <End Role="UserMaster" EntitySet="UserMasters" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserModuleMap_UserMaster" Association="ERPModel.FK_UserModuleMap_UserMaster">
-            <End Role="UserMaster" EntitySet="UserMasters" />
             <End Role="UserModuleMap" EntitySet="UserModuleMaps" />
           </AssociationSet>
           <EntitySet Name="GlobalSettings" EntityType="ERPModel.GlobalSetting" />
@@ -1811,8 +1741,78 @@
             <End Role="PayrollCutOffMaster" EntitySet="PayrollCutOffMasters" />
             <End Role="PayrollMaster" EntitySet="PayrollMasters" />
           </AssociationSet>
-          <EntitySet Name="EmployeeProfiles" EntityType="ERPModel.EmployeeProfile" />
           <EntitySet Name="DTRRaws" EntityType="ERPModel.DTRRaw" />
+          <EntitySet Name="EmployeeMasters" EntityType="ERPModel.EmployeeMaster" />
+          <EntitySet Name="EmployeeProfiles" EntityType="ERPModel.EmployeeProfile" />
+          <EntitySet Name="UserMasters" EntityType="ERPModel.UserMaster" />
+          <AssociationSet Name="FK_EmployeeMaster_DepartmentMaster" Association="ERPModel.FK_EmployeeMaster_DepartmentMaster">
+            <End Role="DepartmentMaster" EntitySet="DepartmentMasters" />
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeMaster_DesignationMaster" Association="ERPModel.FK_EmployeeMaster_DesignationMaster">
+            <End Role="DesignationMaster" EntitySet="DesignationMasters" />
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeAllowanceMap_EmployeeMaster" Association="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeAllowanceMap" EntitySet="EmployeeAllowanceMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeAttachment_EmployeeMaster" Association="ERPModel.FK_EmployeeAttachment_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeAttachment" EntitySet="EmployeeAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeAttendance_EmployeeMaster" Association="ERPModel.FK_EmployeeAttendance_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeAttendance" EntitySet="EmployeeAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDeductionMap_EmployeeMaster" Association="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeDeductionMap" EntitySet="EmployeeDeductionMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeMaster_EmployeeGradeMaster" Association="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster">
+            <End Role="EmployeeGradeMaster" EntitySet="EmployeeGradeMasters" />
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLeaveCategory_EmployeeMaster" Association="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeLeaveCategory" EntitySet="EmployeeLeaveCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeLoan_EmployeeMaster" Association="ERPModel.FK_EmployeeLoan_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeLoan" EntitySet="EmployeeLoans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeMaster_EmployeeTypeMaster" Association="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster">
+            <End Role="EmployeeTypeMaster" EntitySet="EmployeeTypeMasters" />
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeMaster_ShiftMaster" Association="ERPModel.FK_EmployeeMaster_ShiftMaster">
+            <End Role="ShiftMaster" EntitySet="ShiftMasters" />
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePaidSalary_EmployeeMaster" Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeePaidSalary" EntitySet="EmployeePaidSalaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeSalary_EmployeeMaster" Association="ERPModel.FK_EmployeeSalary_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeSalary" EntitySet="EmployeeSalaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeWorkingDay_EmployeeMaster" Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="EmployeeWorkingDay" EntitySet="EmployeeWorkingDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="ERPModel.FK_UserMaster_EmployeeMaster">
+            <End Role="EmployeeProfile" EntitySet="EmployeeProfiles" />
+            <End Role="UserMaster" EntitySet="UserMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMaster_RoleMaster" Association="ERPModel.FK_UserMaster_RoleMaster">
+            <End Role="RoleMaster" EntitySet="RoleMasters" />
+            <End Role="UserMaster" EntitySet="UserMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserModuleMap_UserMaster" Association="ERPModel.FK_UserModuleMap_UserMaster">
+            <End Role="UserMaster" EntitySet="UserMasters" />
+            <End Role="UserModuleMap" EntitySet="UserModuleMaps" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AllowanceMaster">
           <Key>
@@ -1877,8 +1877,8 @@
           <Property Name="ModifiedBy" Type="Guid" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeMasters" Relationship="ERPModel.FK_EmployeeMaster_DepartmentMaster" FromRole="DepartmentMaster" ToRole="EmployeeMaster" />
           <NavigationProperty Name="InterviewMasters" Relationship="ERPModel.FK_InterviewMaster_DepartmentMaster" FromRole="DepartmentMaster" ToRole="InterviewMaster" />
+          <NavigationProperty Name="EmployeeMasters" Relationship="ERPModel.FK_EmployeeMaster_DepartmentMaster" FromRole="DepartmentMaster" ToRole="EmployeeMaster" />
         </EntityType>
         <EntityType Name="DesignationMaster">
           <Key>
@@ -1891,8 +1891,8 @@
           <Property Name="ModifiedBy" Type="Guid" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeMasters" Relationship="ERPModel.FK_EmployeeMaster_DesignationMaster" FromRole="DesignationMaster" ToRole="EmployeeMaster" />
           <NavigationProperty Name="InterviewMasters" Relationship="ERPModel.FK_InterviewMaster_DesignationMaster" FromRole="DesignationMaster" ToRole="InterviewMaster" />
+          <NavigationProperty Name="EmployeeMasters" Relationship="ERPModel.FK_EmployeeMaster_DesignationMaster" FromRole="DesignationMaster" ToRole="EmployeeMaster" />
         </EntityType>
         <EntityType Name="DeviceMaster">
           <Key>
@@ -2065,8 +2065,8 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsApprove" Type="Boolean" />
-          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" FromRole="EmployeeLeaveCategory" ToRole="EmployeeMaster" />
           <NavigationProperty Name="LeaveCategoryMaster" Relationship="ERPModel.FK_EmployeeLeaveCategory_LeaveCategoryMaster" FromRole="EmployeeLeaveCategory" ToRole="LeaveCategoryMaster" />
+          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" FromRole="EmployeeLeaveCategory" ToRole="EmployeeMaster" />
         </EntityType>
         <EntityType Name="EmployeeLeaveMap">
           <Key>
@@ -2095,95 +2095,8 @@
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsComplete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeeLoan_EmployeeMaster" FromRole="EmployeeLoan" ToRole="EmployeeMaster" />
           <NavigationProperty Name="EmployeePaidLoans" Relationship="ERPModel.FK_EmployeePaidLoan_EmployeeLoan" FromRole="EmployeeLoan" ToRole="EmployeePaidLoan" />
-        </EntityType>
-        <EntityType Name="EmployeeMaster">
-          <Key>
-            <PropertyRef Name="EmployeeID" />
-          </Key>
-          <Property Name="EmployeeID" Type="Guid" Nullable="false" />
-          <Property Name="EmployeeTypeId" Type="Guid" Nullable="false" />
-          <Property Name="EmployeeGradeId" Type="Guid" />
-          <Property Name="DepartmentId" Type="Guid" Nullable="false" />
-          <Property Name="DesignationId" Type="Guid" Nullable="false" />
-          <Property Name="ShiftId" Type="Guid" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BirthDate" Type="DateTime" Precision="3" />
-          <Property Name="Gender" Type="Boolean" />
-          <Property Name="MaratialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PhotoName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CountryId" Type="Guid" />
-          <Property Name="StateId" Type="Guid" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="JoinDate" Type="DateTime" Precision="3" />
-          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Guid" />
-          <Property Name="ModifiedBy" Type="Guid" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="IsLeave" Type="Boolean" Nullable="false" />
-          <Property Name="LeaveDate" Type="DateTime" Precision="3" />
-          <Property Name="LeaveDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Previlage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FaceTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsHavingFace" Type="Boolean" />
-          <Property Name="FaceLength" Type="Int32" />
-          <Property Name="FingureTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="finger_template_data_bw" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft1" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft4" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft5" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft6" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft7" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft8" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_tft9" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw1" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw2" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw3" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw4" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw5" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw6" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw7" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw8" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="finger_template_data_bw9" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="is_having_fingureprint" Type="Boolean" />
-          <Property Name="IsSend" Type="Boolean" />
-          <Property Name="FaceTemplateData" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PANNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="TotalLeaveCount" Type="Int32" />
-          <NavigationProperty Name="DepartmentMaster" Relationship="ERPModel.FK_EmployeeMaster_DepartmentMaster" FromRole="EmployeeMaster" ToRole="DepartmentMaster" />
-          <NavigationProperty Name="DesignationMaster" Relationship="ERPModel.FK_EmployeeMaster_DesignationMaster" FromRole="EmployeeMaster" ToRole="DesignationMaster" />
-          <NavigationProperty Name="EmployeeAllowanceMaps" Relationship="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAllowanceMap" />
-          <NavigationProperty Name="EmployeeAttachments" Relationship="ERPModel.FK_EmployeeAttachment_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAttachment" />
-          <NavigationProperty Name="EmployeeAttendances" Relationship="ERPModel.FK_EmployeeAttendance_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAttendance" />
-          <NavigationProperty Name="EmployeeDeductionMaps" Relationship="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeDeductionMap" />
-          <NavigationProperty Name="EmployeeGradeMaster" Relationship="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster" FromRole="EmployeeMaster" ToRole="EmployeeGradeMaster" />
-          <NavigationProperty Name="EmployeeLeaveCategories" Relationship="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeLeaveCategory" />
-          <NavigationProperty Name="EmployeeLoans" Relationship="ERPModel.FK_EmployeeLoan_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeLoan" />
-          <NavigationProperty Name="EmployeeTypeMaster" Relationship="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster" FromRole="EmployeeMaster" ToRole="EmployeeTypeMaster" />
-          <NavigationProperty Name="ShiftMaster" Relationship="ERPModel.FK_EmployeeMaster_ShiftMaster" FromRole="EmployeeMaster" ToRole="ShiftMaster" />
-          <NavigationProperty Name="EmployeePaidSalaries" Relationship="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeePaidSalary" />
-          <NavigationProperty Name="EmployeeSalaries" Relationship="ERPModel.FK_EmployeeSalary_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeSalary" />
-          <NavigationProperty Name="EmployeeWorkingDays" Relationship="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeWorkingDay" />
-          <NavigationProperty Name="UserMasters" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="EmployeeMaster" ToRole="UserMaster" />
-          <Property Name="OverTimeAmount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeeLoan_EmployeeMaster" FromRole="EmployeeLoan" ToRole="EmployeeMaster" />
         </EntityType>
         <EntityType Name="EmployeePaidAllowanceMap">
           <Key>
@@ -2272,10 +2185,10 @@
           <Property Name="FinancialYearId" Type="Guid" Nullable="false" />
           <Property Name="TotalPresentDays" Type="Decimal" Precision="6" Scale="1" />
           <Property Name="ProfessionalTax" Type="Decimal" Precision="12" Scale="2" />
-          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" FromRole="EmployeePaidSalary" ToRole="EmployeeMaster" />
           <Property Name="SalaryFromDate" Type="DateTime" Precision="3" />
           <Property Name="SalaryToDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="FinancialYearMaster" Relationship="ERPModel.FK_EmployeePaidSalary_FinancialYearMaster" FromRole="EmployeePaidSalary" ToRole="FinancialYearMaster" />
+          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" FromRole="EmployeePaidSalary" ToRole="EmployeeMaster" />
         </EntityType>
         <EntityType Name="EmployeeSalary">
           <Key>
@@ -2530,26 +2443,6 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="CountryMaster" Relationship="ERPModel.FK_StateMaster_CountryMaster" FromRole="StateMaster" ToRole="CountryMaster" />
         </EntityType>
-        <EntityType Name="UserMaster">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Guid" Nullable="false" />
-          <Property Name="RoleId" Type="Guid" Nullable="false" />
-          <Property Name="EmployeeId" Type="Guid" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LastLogin" Type="DateTime" Precision="3" />
-          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="Guid" />
-          <Property Name="ModifiedBy" Type="Guid" />
-          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeMaster" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="UserMaster" ToRole="EmployeeMaster" />
-          <NavigationProperty Name="RoleMaster" Relationship="ERPModel.FK_UserMaster_RoleMaster" FromRole="UserMaster" ToRole="RoleMaster" />
-          <NavigationProperty Name="UserModuleMaps" Relationship="ERPModel.FK_UserModuleMap_UserMaster" FromRole="UserMaster" ToRole="UserModuleMap" />
-        </EntityType>
         <EntityType Name="UserModuleMap">
           <Key>
             <PropertyRef Name="UserModuleMapID" />
@@ -2608,18 +2501,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeMaster_DepartmentMaster">
-          <End Type="ERPModel.DepartmentMaster" Role="DepartmentMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartmentMaster">
-              <PropertyRef Name="DepartmentID" />
-            </Principal>
-            <Dependent Role="EmployeeMaster">
-              <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_InterviewMaster_DepartmentMaster">
           <End Type="ERPModel.DepartmentMaster" Role="DepartmentMaster" Multiplicity="1" />
           <End Type="ERPModel.InterviewMaster" Role="InterviewMaster" Multiplicity="*" />
@@ -2629,18 +2510,6 @@
             </Principal>
             <Dependent Role="InterviewMaster">
               <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeMaster_DesignationMaster">
-          <End Type="ERPModel.DesignationMaster" Role="DesignationMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DesignationMaster">
-              <PropertyRef Name="DesignationID" />
-            </Principal>
-            <Dependent Role="EmployeeMaster">
-              <PropertyRef Name="DesignationId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2668,78 +2537,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeAllowanceMap_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeAllowanceMap" Role="EmployeeAllowanceMap" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeAllowanceMap">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeAttachment_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeAttachment" Role="EmployeeAttachment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeAttachment">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeAttendance_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeAttendance" Role="EmployeeAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeAttendance">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeDeductionMap_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeDeductionMap" Role="EmployeeDeductionMap" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeDeductionMap">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeMaster_EmployeeGradeMaster">
-          <End Type="ERPModel.EmployeeGradeMaster" Role="EmployeeGradeMaster" Multiplicity="0..1" />
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeGradeMaster">
-              <PropertyRef Name="EmployeeGradeID" />
-            </Principal>
-            <Dependent Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeGradeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeLeaveCategory_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeLeaveCategory" Role="EmployeeLeaveCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeLeaveCategory">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_EmployeeLeaveCategory_LeaveCategoryMaster">
           <End Type="ERPModel.LeaveCategoryMaster" Role="LeaveCategoryMaster" Multiplicity="1" />
           <End Type="ERPModel.EmployeeLeaveCategory" Role="EmployeeLeaveCategory" Multiplicity="*" />
@@ -2752,18 +2549,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeLoan_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeLoan" Role="EmployeeLoan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeLoan">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_EmployeePaidLoan_EmployeeLoan">
           <End Type="ERPModel.EmployeeLoan" Role="EmployeeLoan" Multiplicity="1" />
           <End Type="ERPModel.EmployeePaidLoan" Role="EmployeePaidLoan" Multiplicity="*" />
@@ -2773,78 +2558,6 @@
             </Principal>
             <Dependent Role="EmployeePaidLoan">
               <PropertyRef Name="EmployeeLoanMapId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeMaster_EmployeeTypeMaster">
-          <End Type="ERPModel.EmployeeTypeMaster" Role="EmployeeTypeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeTypeMaster">
-              <PropertyRef Name="EmployeeTypeID" />
-            </Principal>
-            <Dependent Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeMaster_ShiftMaster">
-          <End Type="ERPModel.ShiftMaster" Role="ShiftMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ShiftMaster">
-              <PropertyRef Name="ShiftID" />
-            </Principal>
-            <Dependent Role="EmployeeMaster">
-              <PropertyRef Name="ShiftId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeePaidSalary_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeePaidSalary" Role="EmployeePaidSalary" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeePaidSalary">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeSalary_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeSalary" Role="EmployeeSalary" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeSalary">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeWorkingDay_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
-          <End Type="ERPModel.EmployeeWorkingDay" Role="EmployeeWorkingDay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeWorkingDay">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserMaster_EmployeeMaster">
-          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="0..1" />
-          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeMaster">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="UserMaster">
-              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2881,30 +2594,6 @@
             </Principal>
             <Dependent Role="UserModuleMap">
               <PropertyRef Name="ModuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserMaster_RoleMaster">
-          <End Type="ERPModel.RoleMaster" Role="RoleMaster" Multiplicity="1" />
-          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RoleMaster">
-              <PropertyRef Name="RoleID" />
-            </Principal>
-            <Dependent Role="UserMaster">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserModuleMap_UserMaster">
-          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="1" />
-          <End Type="ERPModel.UserModuleMap" Role="UserModuleMap" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserMaster">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="UserModuleMap">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3233,6 +2922,107 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="DTRRaw">
+          <Key>
+            <PropertyRef Name="DTRRawId" />
+          </Key>
+          <Property Name="DTRRawId" Type="Guid" Nullable="false" />
+          <Property Name="CutOffId" Type="Guid" />
+          <Property Name="EmployeeId" Type="Guid" />
+          <Property Name="StaffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeTypeOrder" Type="Int32" />
+          <Property Name="ActualDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualTime" Type="Time" Precision="7" />
+          <Property Name="FromType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RawOrder" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeTypeId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeGradeId" Type="Guid" />
+          <Property Name="DepartmentId" Type="Guid" Nullable="false" />
+          <Property Name="DesignationId" Type="Guid" Nullable="false" />
+          <Property Name="ShiftId" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="MaratialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryId" Type="Guid" />
+          <Property Name="StateId" Type="Guid" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="JoinDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeNo" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsLeave" Type="Boolean" Nullable="false" />
+          <Property Name="LeaveDate" Type="DateTime" Precision="3" />
+          <Property Name="LeaveDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Previlage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaceTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHavingFace" Type="Boolean" />
+          <Property Name="FaceLength" Type="Int32" />
+          <Property Name="FingureTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="finger_template_data_bw" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft5" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft6" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft7" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft8" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_tft9" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw4" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw5" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw6" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw7" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw8" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="finger_template_data_bw9" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="is_having_fingureprint" Type="Boolean" />
+          <Property Name="IsSend" Type="Boolean" />
+          <Property Name="FaceTemplateData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PANNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TotalLeaveCount" Type="Int32" />
+          <Property Name="OverTimeAmount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="DepartmentMaster" Relationship="ERPModel.FK_EmployeeMaster_DepartmentMaster" FromRole="EmployeeMaster" ToRole="DepartmentMaster" />
+          <NavigationProperty Name="DesignationMaster" Relationship="ERPModel.FK_EmployeeMaster_DesignationMaster" FromRole="EmployeeMaster" ToRole="DesignationMaster" />
+          <NavigationProperty Name="EmployeeAllowanceMaps" Relationship="ERPModel.FK_EmployeeAllowanceMap_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAllowanceMap" />
+          <NavigationProperty Name="EmployeeAttachments" Relationship="ERPModel.FK_EmployeeAttachment_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAttachment" />
+          <NavigationProperty Name="EmployeeAttendances" Relationship="ERPModel.FK_EmployeeAttendance_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeAttendance" />
+          <NavigationProperty Name="EmployeeDeductionMaps" Relationship="ERPModel.FK_EmployeeDeductionMap_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeDeductionMap" />
+          <NavigationProperty Name="EmployeeGradeMaster" Relationship="ERPModel.FK_EmployeeMaster_EmployeeGradeMaster" FromRole="EmployeeMaster" ToRole="EmployeeGradeMaster" />
+          <NavigationProperty Name="EmployeeLeaveCategories" Relationship="ERPModel.FK_EmployeeLeaveCategory_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeLeaveCategory" />
+          <NavigationProperty Name="EmployeeLoans" Relationship="ERPModel.FK_EmployeeLoan_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeLoan" />
+          <NavigationProperty Name="EmployeeTypeMaster" Relationship="ERPModel.FK_EmployeeMaster_EmployeeTypeMaster" FromRole="EmployeeMaster" ToRole="EmployeeTypeMaster" />
+          <NavigationProperty Name="ShiftMaster" Relationship="ERPModel.FK_EmployeeMaster_ShiftMaster" FromRole="EmployeeMaster" ToRole="ShiftMaster" />
+          <NavigationProperty Name="EmployeePaidSalaries" Relationship="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeePaidSalary" />
+          <NavigationProperty Name="EmployeeSalaries" Relationship="ERPModel.FK_EmployeeSalary_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeSalary" />
+          <NavigationProperty Name="EmployeeWorkingDays" Relationship="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeWorkingDay" />
+        </EntityType>
         <EntityType Name="EmployeeProfile">
           <Key>
             <PropertyRef Name="EmployeeId" />
@@ -3289,22 +3079,232 @@
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="IsResigned" Type="Boolean" />
           <Property Name="DateResigned" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserMasters" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="EmployeeProfile" ToRole="UserMaster" />
         </EntityType>
-        <EntityType Name="DTRRaw">
+        <EntityType Name="UserMaster">
           <Key>
-            <PropertyRef Name="DTRRawId" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="DTRRawId" Type="Guid" Nullable="false" />
-          <Property Name="CutOffId" Type="Guid" />
+          <Property Name="UserID" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
           <Property Name="EmployeeId" Type="Guid" />
-          <Property Name="StaffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TimeTypeOrder" Type="Int32" />
-          <Property Name="ActualDate" Type="DateTime" Precision="0" />
-          <Property Name="ActualTime" Type="Time" Precision="7" />
-          <Property Name="FromType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RawOrder" Type="Int32" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+          <Property Name="Token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeProfile" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="UserMaster" ToRole="EmployeeProfile" />
+          <NavigationProperty Name="RoleMaster" Relationship="ERPModel.FK_UserMaster_RoleMaster" FromRole="UserMaster" ToRole="RoleMaster" />
+          <NavigationProperty Name="UserModuleMaps" Relationship="ERPModel.FK_UserModuleMap_UserMaster" FromRole="UserMaster" ToRole="UserModuleMap" />
         </EntityType>
+        <Association Name="FK_EmployeeMaster_DepartmentMaster">
+          <End Type="ERPModel.DepartmentMaster" Role="DepartmentMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentMaster">
+              <PropertyRef Name="DepartmentID" />
+            </Principal>
+            <Dependent Role="EmployeeMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeMaster_DesignationMaster">
+          <End Type="ERPModel.DesignationMaster" Role="DesignationMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesignationMaster">
+              <PropertyRef Name="DesignationID" />
+            </Principal>
+            <Dependent Role="EmployeeMaster">
+              <PropertyRef Name="DesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeAllowanceMap_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeAllowanceMap" Role="EmployeeAllowanceMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeAllowanceMap">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeAttachment_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeAttachment" Role="EmployeeAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeAttachment">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeAttendance_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeAttendance" Role="EmployeeAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeAttendance">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDeductionMap_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeDeductionMap" Role="EmployeeDeductionMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeDeductionMap">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeMaster_EmployeeGradeMaster">
+          <End Type="ERPModel.EmployeeGradeMaster" Role="EmployeeGradeMaster" Multiplicity="0..1" />
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeGradeMaster">
+              <PropertyRef Name="EmployeeGradeID" />
+            </Principal>
+            <Dependent Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeGradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLeaveCategory_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeLeaveCategory" Role="EmployeeLeaveCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLeaveCategory">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeLoan_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeLoan" Role="EmployeeLoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeLoan">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeMaster_EmployeeTypeMaster">
+          <End Type="ERPModel.EmployeeTypeMaster" Role="EmployeeTypeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTypeMaster">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Principal>
+            <Dependent Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeMaster_ShiftMaster">
+          <End Type="ERPModel.ShiftMaster" Role="ShiftMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShiftMaster">
+              <PropertyRef Name="ShiftID" />
+            </Principal>
+            <Dependent Role="EmployeeMaster">
+              <PropertyRef Name="ShiftId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePaidSalary_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeePaidSalary" Role="EmployeePaidSalary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeePaidSalary">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeSalary_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeSalary" Role="EmployeeSalary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeSalary">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeWorkingDay_EmployeeMaster">
+          <End Type="ERPModel.EmployeeMaster" Role="EmployeeMaster" Multiplicity="1" />
+          <End Type="ERPModel.EmployeeWorkingDay" Role="EmployeeWorkingDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeWorkingDay">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMaster_EmployeeMaster">
+          <End Type="ERPModel.EmployeeProfile" Role="EmployeeProfile" Multiplicity="0..1" />
+          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeProfile">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="UserMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMaster_RoleMaster">
+          <End Type="ERPModel.RoleMaster" Role="RoleMaster" Multiplicity="1" />
+          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleMaster">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserMaster">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserModuleMap_UserMaster">
+          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="1" />
+          <End Type="ERPModel.UserModuleMap" Role="UserModuleMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserMaster">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserModuleMap">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3590,79 +3590,6 @@
           <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeMasters">
-      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.EmployeeMaster)">
-        <MappingFragment StoreEntitySet="EmployeeMasters">
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
-          <ScalarProperty Name="EmployeeGradeId" ColumnName="EmployeeGradeId" />
-          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
-          <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="MaratialStatus" ColumnName="MaratialStatus" />
-          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
-          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-          <ScalarProperty Name="StateId" ColumnName="StateId" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
-          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
-          <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="BankName" ColumnName="BankName" />
-          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
-          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="IsLeave" ColumnName="IsLeave" />
-          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
-          <ScalarProperty Name="LeaveDescription" ColumnName="LeaveDescription" />
-          <ScalarProperty Name="Previlage" ColumnName="Previlage" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="FaceTemplate" ColumnName="FaceTemplate" />
-          <ScalarProperty Name="IsHavingFace" ColumnName="IsHavingFace" />
-          <ScalarProperty Name="FaceLength" ColumnName="FaceLength" />
-          <ScalarProperty Name="FingureTemplate" ColumnName="FingureTemplate" />
-          <ScalarProperty Name="finger_template_data_bw" ColumnName="finger_template_data_bw" />
-          <ScalarProperty Name="finger_template_data_tft" ColumnName="finger_template_data_tft" />
-          <ScalarProperty Name="finger_template_data_tft1" ColumnName="finger_template_data_tft1" />
-          <ScalarProperty Name="finger_template_data_tft2" ColumnName="finger_template_data_tft2" />
-          <ScalarProperty Name="finger_template_data_tft3" ColumnName="finger_template_data_tft3" />
-          <ScalarProperty Name="finger_template_data_tft4" ColumnName="finger_template_data_tft4" />
-          <ScalarProperty Name="finger_template_data_tft5" ColumnName="finger_template_data_tft5" />
-          <ScalarProperty Name="finger_template_data_tft6" ColumnName="finger_template_data_tft6" />
-          <ScalarProperty Name="finger_template_data_tft7" ColumnName="finger_template_data_tft7" />
-          <ScalarProperty Name="finger_template_data_tft8" ColumnName="finger_template_data_tft8" />
-          <ScalarProperty Name="finger_template_data_tft9" ColumnName="finger_template_data_tft9" />
-          <ScalarProperty Name="finger_template_data_bw1" ColumnName="finger_template_data_bw1" />
-          <ScalarProperty Name="finger_template_data_bw2" ColumnName="finger_template_data_bw2" />
-          <ScalarProperty Name="finger_template_data_bw3" ColumnName="finger_template_data_bw3" />
-          <ScalarProperty Name="finger_template_data_bw4" ColumnName="finger_template_data_bw4" />
-          <ScalarProperty Name="finger_template_data_bw5" ColumnName="finger_template_data_bw5" />
-          <ScalarProperty Name="finger_template_data_bw6" ColumnName="finger_template_data_bw6" />
-          <ScalarProperty Name="finger_template_data_bw7" ColumnName="finger_template_data_bw7" />
-          <ScalarProperty Name="finger_template_data_bw8" ColumnName="finger_template_data_bw8" />
-          <ScalarProperty Name="finger_template_data_bw9" ColumnName="finger_template_data_bw9" />
-          <ScalarProperty Name="is_having_fingureprint" ColumnName="is_having_fingureprint" />
-          <ScalarProperty Name="IsSend" ColumnName="IsSend" />
-          <ScalarProperty Name="FaceTemplateData" ColumnName="FaceTemplateData" />
-          <ScalarProperty Name="PANNo" ColumnName="PANNo" />
-          <ScalarProperty Name="TotalLeaveCount" ColumnName="TotalLeaveCount" />
-          <ScalarProperty Name="OverTimeAmount" ColumnName="OverTimeAmount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -4012,24 +3939,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserMasters">
-      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.UserMaster)">
-        <MappingFragment StoreEntitySet="UserMasters">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-          <ScalarProperty Name="Token" ColumnName="Token" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="UserModuleMaps">
       <EntityTypeMapping TypeName="IsTypeOf(ERPModel.UserModuleMap)">
         <MappingFragment StoreEntitySet="UserModuleMaps">
@@ -4322,6 +4231,95 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DTRRaws">
+            <EntityTypeMapping TypeName="ERPModel.DTRRaw">
+              <MappingFragment StoreEntitySet="DTRRaws">
+                <ScalarProperty Name="RawOrder" ColumnName="RawOrder" />
+                <ScalarProperty Name="FromType" ColumnName="FromType" />
+                <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
+                <ScalarProperty Name="ActualDate" ColumnName="ActualDate" />
+                <ScalarProperty Name="TimeTypeOrder" ColumnName="TimeTypeOrder" />
+                <ScalarProperty Name="TimeType" ColumnName="TimeType" />
+                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="CutOffId" ColumnName="CutOffId" />
+                <ScalarProperty Name="DTRRawId" ColumnName="DTRRawId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeMasters">
+            <EntityTypeMapping TypeName="ERPModel.EmployeeMaster">
+              <MappingFragment StoreEntitySet="EmployeeMasters">
+                <ScalarProperty Name="OverTimeAmount" ColumnName="OverTimeAmount" />
+                <ScalarProperty Name="TotalLeaveCount" ColumnName="TotalLeaveCount" />
+                <ScalarProperty Name="PANNo" ColumnName="PANNo" />
+                <ScalarProperty Name="FaceTemplateData" ColumnName="FaceTemplateData" />
+                <ScalarProperty Name="IsSend" ColumnName="IsSend" />
+                <ScalarProperty Name="is_having_fingureprint" ColumnName="is_having_fingureprint" />
+                <ScalarProperty Name="finger_template_data_bw9" ColumnName="finger_template_data_bw9" />
+                <ScalarProperty Name="finger_template_data_bw8" ColumnName="finger_template_data_bw8" />
+                <ScalarProperty Name="finger_template_data_bw7" ColumnName="finger_template_data_bw7" />
+                <ScalarProperty Name="finger_template_data_bw6" ColumnName="finger_template_data_bw6" />
+                <ScalarProperty Name="finger_template_data_bw5" ColumnName="finger_template_data_bw5" />
+                <ScalarProperty Name="finger_template_data_bw4" ColumnName="finger_template_data_bw4" />
+                <ScalarProperty Name="finger_template_data_bw3" ColumnName="finger_template_data_bw3" />
+                <ScalarProperty Name="finger_template_data_bw2" ColumnName="finger_template_data_bw2" />
+                <ScalarProperty Name="finger_template_data_bw1" ColumnName="finger_template_data_bw1" />
+                <ScalarProperty Name="finger_template_data_tft9" ColumnName="finger_template_data_tft9" />
+                <ScalarProperty Name="finger_template_data_tft8" ColumnName="finger_template_data_tft8" />
+                <ScalarProperty Name="finger_template_data_tft7" ColumnName="finger_template_data_tft7" />
+                <ScalarProperty Name="finger_template_data_tft6" ColumnName="finger_template_data_tft6" />
+                <ScalarProperty Name="finger_template_data_tft5" ColumnName="finger_template_data_tft5" />
+                <ScalarProperty Name="finger_template_data_tft4" ColumnName="finger_template_data_tft4" />
+                <ScalarProperty Name="finger_template_data_tft3" ColumnName="finger_template_data_tft3" />
+                <ScalarProperty Name="finger_template_data_tft2" ColumnName="finger_template_data_tft2" />
+                <ScalarProperty Name="finger_template_data_tft1" ColumnName="finger_template_data_tft1" />
+                <ScalarProperty Name="finger_template_data_tft" ColumnName="finger_template_data_tft" />
+                <ScalarProperty Name="finger_template_data_bw" ColumnName="finger_template_data_bw" />
+                <ScalarProperty Name="FingureTemplate" ColumnName="FingureTemplate" />
+                <ScalarProperty Name="FaceLength" ColumnName="FaceLength" />
+                <ScalarProperty Name="IsHavingFace" ColumnName="IsHavingFace" />
+                <ScalarProperty Name="FaceTemplate" ColumnName="FaceTemplate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Previlage" ColumnName="Previlage" />
+                <ScalarProperty Name="LeaveDescription" ColumnName="LeaveDescription" />
+                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+                <ScalarProperty Name="IsLeave" ColumnName="IsLeave" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="MaratialStatus" ColumnName="MaratialStatus" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="EmployeeGradeId" ColumnName="EmployeeGradeId" />
+                <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EmployeeProfiles">
             <EntityTypeMapping TypeName="ERPModel.EmployeeProfile">
               <MappingFragment StoreEntitySet="EmployeeProfiles">
@@ -4380,19 +4378,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DTRRaws">
-            <EntityTypeMapping TypeName="ERPModel.DTRRaw">
-              <MappingFragment StoreEntitySet="DTRRaws">
-                <ScalarProperty Name="RawOrder" ColumnName="RawOrder" />
-                <ScalarProperty Name="FromType" ColumnName="FromType" />
-                <ScalarProperty Name="ActualTime" ColumnName="ActualTime" />
-                <ScalarProperty Name="ActualDate" ColumnName="ActualDate" />
-                <ScalarProperty Name="TimeTypeOrder" ColumnName="TimeTypeOrder" />
-                <ScalarProperty Name="TimeType" ColumnName="TimeType" />
-                <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="ERPModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMasters">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="CutOffId" ColumnName="CutOffId" />
-                <ScalarProperty Name="DTRRawId" ColumnName="DTRRawId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,6 +22,6 @@ namespace ERP.Model
 
         public Guid EmployeeId { get; set; }
 
-        public int EmployeeNo { get; set; }
+        public string EmployeeNo { get; set; }
     }
 }

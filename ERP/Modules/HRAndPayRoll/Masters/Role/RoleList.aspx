@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Modules/Main.Master" AutoEventWireup="true" CodeBehind="RoleList.aspx.cs" Inherits="ERP.Modules.HRAndPayRoll.Masters.Role.RoleList" %>
 
 <asp:Content ID="cHead" ContentPlaceHolderID="cphHead" runat="server">
-    <title>Role(s)</title>
+
+    <title>Role</title>
     <script src="<%=ResolveUrl("~/Scripts/Modules/HRAndPayRoll/Masters/Role/RoleList.js")%>"></script>
+
 </asp:Content>
 
 <asp:Content ID="cBody" ContentPlaceHolderID="cphBody" runat="server">
@@ -24,7 +26,7 @@
             </div>
         </div>
     </div>
-    <!-- end of breadcrumbs line -->
+    <!-- end Breadcrumbs line -->
 
     <!-- Role Table -->
     <div class="row">
@@ -32,7 +34,7 @@
             <div class="widget box">
                 <div class="widget-content">
                     <div class="headingOftabel">
-                        <h4>List All <span>Role(s)</span></h4>
+                        <h4>List All <span>Role</span></h4>
                     </div>
                     <form id="frmMain" runat="server">
                         <asp:GridView ID="gvRole" runat="server" AutoGenerateColumns="False" CssClass="table  table-bordered gvRole" OnPreRender="gvRole_PreRender">

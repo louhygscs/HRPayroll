@@ -34,7 +34,7 @@ namespace ERP.Dal
         public bool IsActive { get; set; }
         public Nullable<bool> IsApprove { get; set; }
     
-        public virtual EmployeeMaster EmployeeMaster { get; set; }
         public virtual LeaveCategoryMaster LeaveCategoryMaster { get; set; }
+        public virtual EmployeeMaster EmployeeMaster { get; set; }
     }
 }
