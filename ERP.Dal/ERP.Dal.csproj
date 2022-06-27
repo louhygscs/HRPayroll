@@ -199,6 +199,7 @@
     <Compile Include="Implemention\EmployeeLeaveCategoryService.cs" />
     <Compile Include="Implemention\EmployeePaidSalaryService.cs" />
     <Compile Include="Implemention\InterviewService.cs" />
+    <Compile Include="Implemention\Timelog\TimelogSumarryService.cs" />
     <Compile Include="Interface\Form\IFormService.cs" />
     <Compile Include="Interface\General\IDimensionService.cs" />
     <Compile Include="Interface\General\IDocumentService.cs" />
@@ -246,6 +247,8 @@
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Interface\ILookupService.cs" />
     <Compile Include="Interface\Role\IRoleService.cs" />
+    <Compile Include="Interface\TimeLog\ITimelogEntryService.cs" />
+    <Compile Include="Interface\TimeLog\ITimelogSummaryService.cs" />
     <Compile Include="InterviewAttachment.cs">
       <DependentUpon>ERP_Model.tt</DependentUpon>
     </Compile>
@@ -290,6 +293,12 @@
       <DependentUpon>ERP_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="StateMaster.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeLogEntry.cs">
+      <DependentUpon>ERP_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimelogSummary.cs">
       <DependentUpon>ERP_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="UserMaster.cs">

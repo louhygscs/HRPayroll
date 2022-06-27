@@ -49,7 +49,7 @@ namespace ERP.Modules.HRAndPayRoll.Masters
         {
             try
             {
-                ICountryService _ICountryService = new CountryService();
+                ITimelogSummaryService _ICountryService = new CountryService();
 
                 Result<List<Country>> _Result = _ICountryService.GetCountryList();
 

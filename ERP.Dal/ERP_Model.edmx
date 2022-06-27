@@ -994,6 +994,35 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="TimeLogEntries">
+          <Key>
+            <PropertyRef Name="TimelogId" />
+          </Key>
+          <Property Name="TimelogId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EntryLog" Type="datetime" />
+          <Property Name="EntryType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimelogSummaries">
+          <Key>
+            <PropertyRef Name="TimelogId" />
+          </Key>
+          <Property Name="TimelogId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="logindate" Type="date" />
+          <Property Name="logintime" Type="time" Precision="7" />
+          <Property Name="breakindate" Type="date" />
+          <Property Name="breakintime" Type="time" Precision="7" />
+          <Property Name="breakoutdate" Type="date" />
+          <Property Name="breakouttime" Type="time" Precision="7" />
+          <Property Name="overindate" Type="date" />
+          <Property Name="overintime" Type="time" Precision="7" />
+          <Property Name="overoutdate" Type="date" />
+          <Property Name="overouttime" Type="time" Precision="7" />
+          <Property Name="logoutdate" Type="date" />
+          <Property Name="logouttime" Type="time" Precision="7" />
+          <Property Name="isactive" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserMasters">
           <Key>
             <PropertyRef Name="UserID" />
@@ -1370,6 +1399,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TimelogSummaries_EmployeeProfiles">
+          <End Role="EmployeeProfiles" Type="Self.EmployeeProfiles" Multiplicity="1" />
+          <End Role="TimelogSummaries" Type="Self.TimelogSummaries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeProfiles">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="TimelogSummaries">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserMaster_EmployeeMaster">
           <End Role="EmployeeProfiles" Type="Self.EmployeeProfiles" Multiplicity="0..1" />
           <End Role="UserMasters" Type="Self.UserMasters" Multiplicity="*" />
@@ -1484,6 +1525,8 @@
           <EntitySet Name="RoleMasters" EntityType="Self.RoleMasters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShiftMasters" EntityType="Self.ShiftMasters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StateMasters" EntityType="Self.StateMasters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeLogEntries" EntityType="Self.TimeLogEntries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimelogSummaries" EntityType="Self.TimelogSummaries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserMasters" EntityType="Self.UserMasters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserModuleMaps" EntityType="Self.UserModuleMaps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ValueMasters" EntityType="Self.ValueMasters" Schema="dbo" store:Type="Tables" />
@@ -1598,6 +1641,10 @@
           <AssociationSet Name="FK_StateMaster_CountryMaster" Association="Self.FK_StateMaster_CountryMaster">
             <End Role="CountryMasters" EntitySet="CountryMasters" />
             <End Role="StateMasters" EntitySet="StateMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimelogSummaries_EmployeeProfiles" Association="Self.FK_TimelogSummaries_EmployeeProfiles">
+            <End Role="EmployeeProfiles" EntitySet="EmployeeProfiles" />
+            <End Role="TimelogSummaries" EntitySet="TimelogSummaries" />
           </AssociationSet>
           <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="Self.FK_UserMaster_EmployeeMaster">
             <End Role="EmployeeProfiles" EntitySet="EmployeeProfiles" />
@@ -1743,7 +1790,6 @@
           </AssociationSet>
           <EntitySet Name="DTRRaws" EntityType="ERPModel.DTRRaw" />
           <EntitySet Name="EmployeeMasters" EntityType="ERPModel.EmployeeMaster" />
-          <EntitySet Name="EmployeeProfiles" EntityType="ERPModel.EmployeeProfile" />
           <EntitySet Name="UserMasters" EntityType="ERPModel.UserMaster" />
           <AssociationSet Name="FK_EmployeeMaster_DepartmentMaster" Association="ERPModel.FK_EmployeeMaster_DepartmentMaster">
             <End Role="DepartmentMaster" EntitySet="DepartmentMasters" />
@@ -1801,10 +1847,6 @@
             <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
             <End Role="EmployeeWorkingDay" EntitySet="EmployeeWorkingDays" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="ERPModel.FK_UserMaster_EmployeeMaster">
-            <End Role="EmployeeProfile" EntitySet="EmployeeProfiles" />
-            <End Role="UserMaster" EntitySet="UserMasters" />
-          </AssociationSet>
           <AssociationSet Name="FK_UserMaster_RoleMaster" Association="ERPModel.FK_UserMaster_RoleMaster">
             <End Role="RoleMaster" EntitySet="RoleMasters" />
             <End Role="UserMaster" EntitySet="UserMasters" />
@@ -1812,6 +1854,17 @@
           <AssociationSet Name="FK_UserModuleMap_UserMaster" Association="ERPModel.FK_UserModuleMap_UserMaster">
             <End Role="UserMaster" EntitySet="UserMasters" />
             <End Role="UserModuleMap" EntitySet="UserModuleMaps" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeProfiles" EntityType="ERPModel.EmployeeProfile" />
+          <EntitySet Name="TimeLogEntries" EntityType="ERPModel.TimeLogEntry" />
+          <EntitySet Name="TimelogSummaries" EntityType="ERPModel.TimelogSummary" />
+          <AssociationSet Name="FK_TimelogSummaries_EmployeeProfiles" Association="ERPModel.FK_TimelogSummaries_EmployeeProfiles">
+            <End Role="EmployeeProfile" EntitySet="EmployeeProfiles" />
+            <End Role="TimelogSummary" EntitySet="TimelogSummaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMaster_EmployeeMaster" Association="ERPModel.FK_UserMaster_EmployeeMaster">
+            <End Role="EmployeeProfile" EntitySet="EmployeeProfiles" />
+            <End Role="UserMaster" EntitySet="UserMasters" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AllowanceMaster">
@@ -3023,64 +3076,6 @@
           <NavigationProperty Name="EmployeeSalaries" Relationship="ERPModel.FK_EmployeeSalary_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeSalary" />
           <NavigationProperty Name="EmployeeWorkingDays" Relationship="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" FromRole="EmployeeMaster" ToRole="EmployeeWorkingDay" />
         </EntityType>
-        <EntityType Name="EmployeeProfile">
-          <Key>
-            <PropertyRef Name="EmployeeId" />
-          </Key>
-          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
-          <Property Name="PicImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateHired" Type="DateTime" Precision="3" />
-          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MartialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateOfMarriage" Type="DateTime" Precision="3" />
-          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
-          <Property Name="BirthPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="NoOfChildren" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="CurrentBasicPay" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PaymentTerms" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EmploymentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HouseStreetNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BarangayTownVillage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CityMunicipalityProvince" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="County" Type="Guid" />
-          <Property Name="Region" Type="Guid" />
-          <Property Name="PostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HomeTelephoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HighEducAttainment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="School" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="YearsCompleted" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
-          <Property Name="ContractType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ContractStartDate" Type="DateTime" Precision="3" />
-          <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
-          <Property Name="DesignationId" Type="Guid" />
-          <Property Name="WorkLocationId" Type="Guid" />
-          <Property Name="DepartmentId" Type="Guid" />
-          <Property Name="CostCenter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TypeOfNCR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TINNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TaxExemption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SSSNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PagIbigNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhilhealthNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DriverLicenseNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StaffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="Guid" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="Guid" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="IsResigned" Type="Boolean" />
-          <Property Name="DateResigned" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="UserMasters" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="EmployeeProfile" ToRole="UserMaster" />
-        </EntityType>
         <EntityType Name="UserMaster">
           <Key>
             <PropertyRef Name="UserID" />
@@ -3097,9 +3092,9 @@
           <Property Name="ModifiedBy" Type="Guid" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeProfile" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="UserMaster" ToRole="EmployeeProfile" />
           <NavigationProperty Name="RoleMaster" Relationship="ERPModel.FK_UserMaster_RoleMaster" FromRole="UserMaster" ToRole="RoleMaster" />
           <NavigationProperty Name="UserModuleMaps" Relationship="ERPModel.FK_UserModuleMap_UserMaster" FromRole="UserMaster" ToRole="UserModuleMap" />
+          <NavigationProperty Name="EmployeeProfile" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="UserMaster" ToRole="EmployeeProfile" />
         </EntityType>
         <Association Name="FK_EmployeeMaster_DepartmentMaster">
           <End Type="ERPModel.DepartmentMaster" Role="DepartmentMaster" Multiplicity="1" />
@@ -3269,18 +3264,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserMaster_EmployeeMaster">
-          <End Type="ERPModel.EmployeeProfile" Role="EmployeeProfile" Multiplicity="0..1" />
-          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeProfile">
-              <PropertyRef Name="EmployeeId" />
-            </Principal>
-            <Dependent Role="UserMaster">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UserMaster_RoleMaster">
           <End Type="ERPModel.RoleMaster" Role="RoleMaster" Multiplicity="1" />
           <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
@@ -3302,6 +3285,119 @@
             </Principal>
             <Dependent Role="UserModuleMap">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeProfile">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
+          <Property Name="PicImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateHired" Type="DateTime" Precision="3" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MartialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfMarriage" Type="DateTime" Precision="3" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="BirthPlace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfChildren" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CurrentBasicPay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaymentTerms" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmploymentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseStreetNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BarangayTownVillage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CityMunicipalityProvince" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="Guid" />
+          <Property Name="Region" Type="Guid" />
+          <Property Name="PostalCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HomeTelephoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HighEducAttainment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="School" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YearsCompleted" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCompleted" Type="DateTime" Precision="3" />
+          <Property Name="ContractType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContractStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ContractEndDate" Type="DateTime" Precision="3" />
+          <Property Name="DesignationId" Type="Guid" />
+          <Property Name="WorkLocationId" Type="Guid" />
+          <Property Name="DepartmentId" Type="Guid" />
+          <Property Name="CostCenter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfNCR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TINNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxExemption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SSSNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PagIbigNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhilhealthNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverLicenseNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StaffCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsResigned" Type="Boolean" />
+          <Property Name="DateResigned" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TimelogSummaries" Relationship="ERPModel.FK_TimelogSummaries_EmployeeProfiles" FromRole="EmployeeProfile" ToRole="TimelogSummary" />
+          <NavigationProperty Name="UserMasters" Relationship="ERPModel.FK_UserMaster_EmployeeMaster" FromRole="EmployeeProfile" ToRole="UserMaster" />
+        </EntityType>
+        <EntityType Name="TimeLogEntry">
+          <Key>
+            <PropertyRef Name="TimelogId" />
+          </Key>
+          <Property Name="TimelogId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
+          <Property Name="EntryLog" Type="DateTime" Precision="3" />
+          <Property Name="EntryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TimelogSummary">
+          <Key>
+            <PropertyRef Name="TimelogId" />
+          </Key>
+          <Property Name="TimelogId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
+          <Property Name="logindate" Type="DateTime" Precision="0" />
+          <Property Name="logintime" Type="Time" Precision="7" />
+          <Property Name="breakindate" Type="DateTime" Precision="0" />
+          <Property Name="breakintime" Type="Time" Precision="7" />
+          <Property Name="breakoutdate" Type="DateTime" Precision="0" />
+          <Property Name="breakouttime" Type="Time" Precision="7" />
+          <Property Name="overindate" Type="DateTime" Precision="0" />
+          <Property Name="overintime" Type="Time" Precision="7" />
+          <Property Name="overoutdate" Type="DateTime" Precision="0" />
+          <Property Name="overouttime" Type="Time" Precision="7" />
+          <Property Name="logoutdate" Type="DateTime" Precision="0" />
+          <Property Name="logouttime" Type="Time" Precision="7" />
+          <Property Name="isactive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EmployeeProfile" Relationship="ERPModel.FK_TimelogSummaries_EmployeeProfiles" FromRole="TimelogSummary" ToRole="EmployeeProfile" />
+        </EntityType>
+        <Association Name="FK_TimelogSummaries_EmployeeProfiles">
+          <End Type="ERPModel.EmployeeProfile" Role="EmployeeProfile" Multiplicity="1" />
+          <End Type="ERPModel.TimelogSummary" Role="TimelogSummary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeProfile">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="TimelogSummary">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMaster_EmployeeMaster">
+          <End Type="ERPModel.EmployeeProfile" Role="EmployeeProfile" Multiplicity="0..1" />
+          <End Type="ERPModel.UserMaster" Role="UserMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeProfile">
+              <PropertyRef Name="EmployeeId" />
+            </Principal>
+            <Dependent Role="UserMaster">
+              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4320,6 +4416,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="ERPModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMasters">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EmployeeProfiles">
             <EntityTypeMapping TypeName="ERPModel.EmployeeProfile">
               <MappingFragment StoreEntitySet="EmployeeProfiles">
@@ -4378,21 +4492,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserMasters">
-            <EntityTypeMapping TypeName="ERPModel.UserMaster">
-              <MappingFragment StoreEntitySet="UserMasters">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Token" ColumnName="Token" />
-                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
+          <EntitySetMapping Name="TimeLogEntries">
+            <EntityTypeMapping TypeName="ERPModel.TimeLogEntry">
+              <MappingFragment StoreEntitySet="TimeLogEntries">
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="EntryLog" ColumnName="EntryLog" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TimelogId" ColumnName="TimelogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimelogSummaries">
+            <EntityTypeMapping TypeName="ERPModel.TimelogSummary">
+              <MappingFragment StoreEntitySet="TimelogSummaries">
+                <ScalarProperty Name="isactive" ColumnName="isactive" />
+                <ScalarProperty Name="logouttime" ColumnName="logouttime" />
+                <ScalarProperty Name="logoutdate" ColumnName="logoutdate" />
+                <ScalarProperty Name="overouttime" ColumnName="overouttime" />
+                <ScalarProperty Name="overoutdate" ColumnName="overoutdate" />
+                <ScalarProperty Name="overintime" ColumnName="overintime" />
+                <ScalarProperty Name="overindate" ColumnName="overindate" />
+                <ScalarProperty Name="breakouttime" ColumnName="breakouttime" />
+                <ScalarProperty Name="breakoutdate" ColumnName="breakoutdate" />
+                <ScalarProperty Name="breakintime" ColumnName="breakintime" />
+                <ScalarProperty Name="breakindate" ColumnName="breakindate" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="logindate" ColumnName="logindate" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="TimelogId" ColumnName="TimelogId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

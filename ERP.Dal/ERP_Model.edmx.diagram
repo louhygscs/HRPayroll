@@ -75,7 +75,6 @@
         <AssociationConnector Association="ERPModel.FK_PayrollMasters_PayrollCutOffMasters" />
         <EntityTypeShape EntityType="ERPModel.DTRRaw" Width="1.5" PointX="5.375" PointY="14.75" />
         <EntityTypeShape EntityType="ERPModel.EmployeeMaster" Width="1.5" PointX="3" PointY="25.75" />
-        <EntityTypeShape EntityType="ERPModel.EmployeeProfile" Width="1.5" PointX="9" PointY="44.5" />
         <EntityTypeShape EntityType="ERPModel.UserMaster" Width="1.5" PointX="11.25" PointY="22.25" />
         <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DepartmentMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeeMaster_DesignationMaster" />
@@ -91,9 +90,13 @@
         <AssociationConnector Association="ERPModel.FK_EmployeePaidSalary_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeeSalary_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_EmployeeWorkingDay_EmployeeMaster" />
-        <AssociationConnector Association="ERPModel.FK_UserMaster_EmployeeMaster" />
         <AssociationConnector Association="ERPModel.FK_UserMaster_RoleMaster" />
         <AssociationConnector Association="ERPModel.FK_UserModuleMap_UserMaster" />
+        <EntityTypeShape EntityType="ERPModel.EmployeeProfile" Width="1.5" PointX="14" PointY="25.625" />
+        <EntityTypeShape EntityType="ERPModel.TimeLogEntry" Width="1.5" PointX="18.375" PointY="25.625" />
+        <EntityTypeShape EntityType="ERPModel.TimelogSummary" Width="1.5" PointX="16.25" PointY="25.625" />
+        <AssociationConnector Association="ERPModel.FK_TimelogSummaries_EmployeeProfiles" />
+        <AssociationConnector Association="ERPModel.FK_UserMaster_EmployeeMaster" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

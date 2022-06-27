@@ -83,6 +83,8 @@
     <Compile Include="HRAndPayRoll\Department.cs" />
     <Compile Include="HRAndPayRoll\Designation.cs" />
     <Compile Include="HRAndPayRoll\EmployeeGrade.cs" />
+    <Compile Include="HRAndPayRoll\Timelog\TimelogEntryModel.cs" />
+    <Compile Include="HRAndPayRoll\Timelog\TimelogSummaryModel.cs" />
     <Compile Include="HRAndPayRoll\User\UserModel.cs" />
     <Compile Include="IpInformationModel.cs" />
     <Compile Include="Item.cs" />

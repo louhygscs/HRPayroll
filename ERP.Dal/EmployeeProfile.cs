@@ -16,6 +16,7 @@ namespace ERP.Dal
     {
         public EmployeeProfile()
         {
+            this.TimelogSummaries = new HashSet<TimelogSummary>();
             this.UserMasters = new HashSet<UserMaster>();
         }
     
@@ -72,6 +73,7 @@ namespace ERP.Dal
         public Nullable<bool> IsResigned { get; set; }
         public Nullable<System.DateTime> DateResigned { get; set; }
     
+        public virtual ICollection<TimelogSummary> TimelogSummaries { get; set; }
         public virtual ICollection<UserMaster> UserMasters { get; set; }
     }
 }

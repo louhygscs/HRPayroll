@@ -32,8 +32,8 @@ namespace ERP.Dal
         public System.DateTime ModifiedDate { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual EmployeeProfile EmployeeProfile { get; set; }
         public virtual RoleMaster RoleMaster { get; set; }
         public virtual ICollection<UserModuleMap> UserModuleMaps { get; set; }
+        public virtual EmployeeProfile EmployeeProfile { get; set; }
     }
 }

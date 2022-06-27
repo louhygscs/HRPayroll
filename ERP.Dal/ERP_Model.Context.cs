@@ -79,7 +79,9 @@ namespace ERP.Dal
         public virtual DbSet<PayrollMaster> PayrollMasters { get; set; }
         public virtual DbSet<DTRRaw> DTRRaws { get; set; }
         public virtual DbSet<EmployeeMaster> EmployeeMasters { get; set; }
-        public virtual DbSet<EmployeeProfile> EmployeeProfiles { get; set; }
         public virtual DbSet<UserMaster> UserMasters { get; set; }
+        public virtual DbSet<EmployeeProfile> EmployeeProfiles { get; set; }
+        public virtual DbSet<TimeLogEntry> TimeLogEntries { get; set; }
+        public virtual DbSet<TimelogSummary> TimelogSummaries { get; set; }
     }
 }
