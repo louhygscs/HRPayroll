@@ -10,7 +10,7 @@ namespace ERP.Dal.Interface
 
         Result<Boolean> DeleteTimelogSummaryById(Guid p_EntityId, Guid p_UserId);
 
-        Result<Country> GetTimelogSummaryById(Guid p_EntityId);
+        Result<TimelogSummaryModel> GetTimelogSummaryById(Guid p_EntityId);
 
         Result<bool> SaveTimelogSummary(TimelogSummaryModel p_Entity, Guid p_UserId);
 

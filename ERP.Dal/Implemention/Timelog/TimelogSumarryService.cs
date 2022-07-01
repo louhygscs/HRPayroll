@@ -107,8 +107,21 @@ namespace ERP.Dal.Implemention
                                  where d.TimelogId == p_EntityId
                                  select new TimelogSummaryModel
                                  {
-                                     RoleID = d.RoleID,
-                                     RoleName = d.RoleName
+                                     TimelogId = d.TimelogId,
+                                     EmployeeId = d.EmployeeId,
+                                     logindate = d.logindate,
+                                     logintime = d.logintime,
+                                     breakindate = d.breakindate,
+                                     breakintime = d.breakintime,
+                                     breakoutdate = d.breakoutdate,
+                                     breakouttime = d.breakouttime,
+                                     overindate = d.overindate,
+                                     overintime = d.overintime,
+                                     overoutdate = d.overoutdate,
+                                     overouttime = d.overouttime,
+                                     logoutdate = d.logoutdate,
+                                     logouttime = d.logouttime,
+                                     isactive = d.isactive
                                  };
 
                     TimelogSummaryModel _Role = _Query.FirstOrDefault();
@@ -137,7 +150,7 @@ namespace ERP.Dal.Implemention
             Result<bool> _Result = new Result<bool>();
             using (var dbContext = new ERPEntities())
             {
-                TimelogSummary _EntityTable = dbContext.TimelogSummaries.Where(e => e.RoleName == p_Role.RoleName).FirstOrDefault();
+                TimelogSummary _EntityTable = dbContext.TimelogSummaries.Where(e => e.EmployeeId == p_Entity.EmployeeId).FirstOrDefault();
 
                 if (_EntityTable == null)
                 {
@@ -146,17 +159,41 @@ namespace ERP.Dal.Implemention
                     if (p_Entity.TimelogId == Guid.Empty)
                     {
                         _EntityTable.TimelogId = Guid.NewGuid();
-                        _EntityTable.RoleName = p_Role.RoleName;
-                        _EntityTable.IsActive    = true;
+                        _EntityTable.EmployeeId = p_Entity.EmployeeId;
+                        _EntityTable.logindate = p_Entity.logindate;
+                        _EntityTable.logintime = p_Entity.logintime;
+                        _EntityTable.breakindate = p_Entity.breakindate;
+                        _EntityTable.breakintime = p_Entity.breakintime;
+                        _EntityTable.breakoutdate = p_Entity.breakoutdate;
+                        _EntityTable.breakouttime = p_Entity.breakouttime;
+                        _EntityTable.overindate = p_Entity.overindate;
+                        _EntityTable.overintime = p_Entity.overintime;
+                        _EntityTable.overoutdate = p_Entity.overoutdate;
+                        _EntityTable.overouttime = p_Entity.overouttime;
+                        _EntityTable.logoutdate = p_Entity.logoutdate;
+                        _EntityTable.logouttime = p_Entity.logouttime;
+                        _EntityTable.isactive = true;
                     }
                     else
                     {
-                        _EntityTable = dbContext.RoleMasters.Where(e => e.RoleID == p_Entity.RoleID).FirstOrDefault();
+                        _EntityTable = dbContext.TimelogSummaries.Where(e => e.TimelogId == p_Entity.TimelogId).FirstOrDefault();
 
                         if(_EntityTable != null)
                         {
-                            _EntityTable.RoleName = p_Entity.RoleName;
-                            _EntityTable.IsActive = p_Entity.IsActive;
+                            _EntityTable.EmployeeId = p_Entity.EmployeeId;
+                            _EntityTable.logindate = p_Entity.logindate;
+                            _EntityTable.logintime = p_Entity.logintime;
+                            _EntityTable.breakindate = p_Entity.breakindate;
+                            _EntityTable.breakintime = p_Entity.breakintime;
+                            _EntityTable.breakoutdate = p_Entity.breakoutdate;
+                            _EntityTable.breakouttime = p_Entity.breakouttime;
+                            _EntityTable.overindate = p_Entity.overindate;
+                            _EntityTable.overintime = p_Entity.overintime;
+                            _EntityTable.overoutdate = p_Entity.overoutdate;
+                            _EntityTable.overouttime = p_Entity.overouttime;
+                            _EntityTable.logoutdate = p_Entity.logoutdate;
+                            _EntityTable.logouttime = p_Entity.logouttime;
+                            _EntityTable.isactive = p_Entity.isactive;
                         }
                     }
 

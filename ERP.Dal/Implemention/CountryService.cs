@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Dal.Implemention
 {
-    public class CountryService : ITimelogSummaryService
+    public class CountryService : ICountryService
     {
         public Result<List<Country>> GetCountryList()
         {

@@ -64,7 +64,7 @@ namespace ERP.Modules.HRAndPayRoll.Masters
                 _Country.Code        = txtCode.Text.Trim();
                 _Country.CountryName = txtCountryName.Text.Trim();
 
-                ITimelogSummaryService _ICountryService = new CountryService();
+                ICountryService _ICountryService = new CountryService();
 
                 Result<Boolean> _Result = _ICountryService.SaveCountry(_Country, SessionHelper.SessionDetail.UserID);
 
@@ -105,7 +105,7 @@ namespace ERP.Modules.HRAndPayRoll.Masters
         {
             try
             {
-                ITimelogSummaryService _ICountryService = new CountryService();
+                CountryService _ICountryService = new CountryService();
 
                 Result<Country> _Result = _ICountryService.GetCountryById(p_Id);
 
